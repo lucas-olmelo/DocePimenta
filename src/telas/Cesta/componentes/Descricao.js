@@ -2,22 +2,20 @@ import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 
 
-import icone from '../../../../assets/icon.png';
 import Texto from '../../../componentes/Texto.js';
 
 
 
-export default function Descricao() {
+export default function Descricao({nome,logoSacolao,descricao,preco}) {
     return <>
     <View style={estilos.cesta}>
-        <Texto style={estilos.nome}>Cesta de Frutas</Texto>
+        <Texto style={estilos.nome}>{nome}</Texto>
         <View style={estilos.sacolao}>
-            <Image source={icone} style={estilos.icone} />
-            <Texto style={estilos.nomeSacolao}>Sacolão da Rosa</Texto>
+            <Image source={logoSacolao} style={estilos.icone} />
+            <Texto style={estilos.nomeSacolao}>{descricao}</Texto>
         </View>
-        <Texto style={estilos.descricao}>Uma cesta com produtos cuidadosamente
-            selecionados da horta direto para sua cozinha.</Texto>
-        <Texto style={estilos.preco}>R$ 40,00</Texto>
+        <Texto style={estilos.descricao}>{descricao}</Texto>
+        <Texto style={estilos.preco}>{preco}</Texto>
     </View>
     </>
 }
