@@ -9,7 +9,6 @@ import {
 import Cesta from './src/telas/Cesta';
 import mock from './src/mocks/cesta';
 
-
 export default function App() {
 
 //Fonte utilizada para o projeto
