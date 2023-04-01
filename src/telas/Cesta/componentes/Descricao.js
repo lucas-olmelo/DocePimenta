@@ -3,19 +3,20 @@ import { Image, StyleSheet, View } from "react-native";
 
 
 import Texto from '../../../componentes/Texto.js';
+import Botao from '../../../componentes/Botao.js'
 
 
-
-export default function Descricao({nome,logoSacolao,descricao,preco}) {
+export default function Descricao({nome,logoSacolao,nomeSacolao,descricao,preco,comprar}) {
     return <>
     <View style={estilos.cesta}>
         <Texto style={estilos.nome}>{nome}</Texto>
         <View style={estilos.sacolao}>
             <Image source={logoSacolao} style={estilos.icone} />
-            <Texto style={estilos.nomeSacolao}>{descricao}</Texto>
+            <Texto style={estilos.nomeSacolao}>{nomeSacolao}</Texto>
         </View>
         <Texto style={estilos.descricao}>{descricao}</Texto>
         <Texto style={estilos.preco}>{preco}</Texto>
+        <Botao style={estilos.botao}>{comprar}</Botao>
     </View>
     </>
 }
@@ -57,4 +58,8 @@ const estilos = StyleSheet.create({
         width: 40,
         height: 40,
     },
+    botao: {
+        backgroundColor: "green",
+        color: "red"
+    }
 });

@@ -11,6 +11,10 @@ const cesta = {
         descricao: "Uma cesta com produtos cuidadosamente selecionados da horta direto para sua cozinha",
         preco:" R$50,00",
     },
+    botao:{
+        comprar: "Comprar",
+    },
+
 }
 
 export default cesta;
