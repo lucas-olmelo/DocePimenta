@@ -11,21 +11,21 @@ import mock from './src/mocks/cesta';
 
 export default function App() {
 
-//Fonte utilizada para o projeto
-const [ fonteCarregada ] = useFonts({
-  "MontSerratRegular" : Montserrat_400Regular,
-  "MontSerratBold" : Montserrat_700Bold,
-});
+  //Fonte utilizada para o projeto
+  const [fonteCarregada] = useFonts({
+    "MontSerratRegular": Montserrat_400Regular,
+    "MontSerratBold": Montserrat_700Bold,
+  });
 
   //Checa se as fontes já foram carregadas antes de exibir no APP
-  if(!fonteCarregada) {
+  if (!fonteCarregada) {
     return <View />;
   }
 
   return (
     <SafeAreaView>
-      <Cesta {...mock}/>
-      <StatusBar/>
+      <Cesta {...mock} />
+      <StatusBar />
     </SafeAreaView>
   );
 }

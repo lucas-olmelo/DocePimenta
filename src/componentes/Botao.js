@@ -4,23 +4,23 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import Texto from "../componentes/Texto.js"
 
 export default function Botao({ children, style }) {
-    
+
     let fundoCor = estilos.botaoPad;
 
     let textoCor = estilos.botaoTextoPad;
 
-    if(style?.backgroundColor != "purple"){
-        fundoCor= estilos.botaoPersonalizado;
+    if (style?.backgroundColor != "purple") {
+        fundoCor = estilos.botaoPersonalizado;
     }
-    if(style?.color != "white"){
+    if (style?.color != "white") {
         textoCor = estilos.botaoTextoPer;
     }
 
-    return<> 
-    <TouchableOpacity style={[style, fundoCor]}>
-        <Texto style={[style, textoCor]}>{children}</Texto>
-    </TouchableOpacity>
-</>
+    return <>
+        <TouchableOpacity style={[style, fundoCor]}>
+            <Texto style={[style, textoCor]}>{children}</Texto>
+        </TouchableOpacity>
+    </>
 }
 
 const estilos = StyleSheet.create({

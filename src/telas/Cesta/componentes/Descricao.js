@@ -3,7 +3,7 @@ import { Image, StyleSheet, View } from "react-native";
 
 
 import Texto from '../../../componentes/Texto.js';
-import Botao from '../../../componentes/Botao.js'
+import Botao from '../../../componentes/Botao.js';
 
 
 export default function Descricao({nome,logoSacolao,nomeSacolao,descricao,preco,comprar}) {
@@ -59,7 +59,7 @@ const estilos = StyleSheet.create({
         height: 40,
     },
     botao: {
-        backgroundColor: "green",
-        color: "red"
+        backgroundColor: "lightgreen",
+        color: "purple"
     }
 });
