@@ -1,8 +1,8 @@
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-import Topo from "../Cesta/componentes/Topo.js";
-import Descricao from "../Cesta/componentes/Descricao.js";
+import Topo from "../Home/componentes/Topo.js";
+import Descricao from "../Home/componentes/Descricao.js";
 import Item from "./componentes/Item.js";
 import Texto from '../../componentes/Texto.js';
 
