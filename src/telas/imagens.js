@@ -3,38 +3,38 @@ import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import Carousel, { PaginationLight } from 'react-native-x-carousel';
 
 import logo from '../../assets/logo.png';
-import Cesta2 from '../../assets/cestas/cesta2.png';
-import Cesta1 from '../../assets/cestas/cesta1.png';
-import Cesta3 from '../../assets/cestas/cesta3.png';
-import Cesta4 from '../../assets/cestas/cesta4.png';
-import Cesta5 from '../../assets/cestas/cesta5.png';
+import modelo from '../../assets/modelos/modelo.jpg';
+import modelo1 from '../../assets/modelos//modelo1.jpg';
+import modelo2 from '../../assets/modelos//modelo2.jpg';
+import modelo3 from '../../assets/modelos//modelo3.jpg';
+import modelo4 from '../../assets/modelos//modelo4.jpg';
 import Texto from '../componentes/Texto';
 
 const { width } = Dimensions.get('window');
 
 const DATA = [
 	{
-		coverImageUri: Cesta1,
+		coverImageUri: modelo,
 		cornerLabelColor: '#FFD300',
 		cornerLabelText: 'Especial'
 	},
 	{
-		coverImageUri: Cesta2,
+		coverImageUri: modelo1,
 		cornerLabelColor: '#0080FF',
 		cornerLabelText: 'Dia das mães'
 	},
 	{
-		coverImageUri: Cesta3,
+		coverImageUri: modelo2,
 		cornerLabelColor: '#FFD300',
 		cornerLabelText: 'Especial'
 	},
 	{
-		coverImageUri: Cesta4,
+		coverImageUri: modelo3,
 		cornerLabelColor: '#FFD300',
 		cornerLabelText: 'Especial'
 	},
 	{
-		coverImageUri: Cesta5,
+		coverImageUri: modelo4,
 		cornerLabelColor: '#FFD300',
 		cornerLabelText: 'Especial'
 	}
@@ -54,8 +54,6 @@ const Imagens = () => {
 	)
 
 	return <View style={styles.container}>
-		<Image source={logo} style={styles.logo}/>
-        <Texto style={styles.imageText}>Veja abaixo alguns de nossos produtos</Texto>
 		<Carousel
 			pagination={PaginationLight}
 			renderItem={renderItem}

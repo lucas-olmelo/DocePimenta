@@ -31,7 +31,7 @@ function TabsMenu() {
     <Tab.Navigator
       style={{ backgroundColor: '#0000' }}
       screenOptions={({ route }) => ({
-        tabBarStyle: { backgroundColor: "black" },
+        tabBarStyle: { backgroundColor: "black" , borderTopLeftRadius: 50 , borderTopRightRadius: 50},
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
