@@ -11,7 +11,7 @@ import {
 
 import Home from './src/telas/Home';
 import mock from './src/mocks/cesta';
-import Sacolao from './src/telas/sacolao';
+import Sobre from './src/telas/sobre';
 import Imagens from './src/telas/imagens';
 
 function MenuCesta() {
@@ -62,7 +62,7 @@ function TabsMenu() {
 
     >
       <Tab.Screen name="Home" component={MenuCesta}  />
-      <Tab.Screen name="Sobre" component={Sacolao} />
+      <Tab.Screen name="Sobre" component={Sobre} />
       <Tab.Screen name="Catalogo" component={Imagens} />
       <Tab.Screen name="Contato" component={Imagens} />
     </Tab.Navigator>
