@@ -29,9 +29,11 @@ const Tab = createBottomTabNavigator();
 function TabsMenu() {
   return (
     <Tab.Navigator
-      style={{ backgroundColor: '#0000' }}
-      screenOptions={({ route }) => ({
-        tabBarStyle: { backgroundColor: "black" },
+      style={{ backgroundColor: '#211F20' }}
+      screenOptions={
+        ({ route }) => ({
+        headerShown: false,
+        tabBarStyle: { backgroundColor: "#211F20" },
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -57,9 +59,8 @@ function TabsMenu() {
         },
         tabBarActiveTintColor: 'red',
         tabBarInactiveTintColor: 'white',
-
-      })}
-
+      })
+    }
     >
       <Tab.Screen name="Home" component={MenuCesta}  />
       <Tab.Screen name="Sobre" component={Sobre} />

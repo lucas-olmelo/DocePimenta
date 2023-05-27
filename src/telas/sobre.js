@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Dimensions } from "react-native";
 import Texto from "../componentes/Texto";
+import Header from "../componentes/Header";
 import loja from "../../assets/loja.jpg" //Mudar imagem
 //import imgSacolao from "../../assets/imagem_sacolao.jpg"
 
@@ -8,6 +9,7 @@ const width = Dimensions.get('screen').width;
 
 export default function Sacolao(){
     return <ScrollView>
+        <Header />
         <Texto style={estilos.slogan}>
             Fazemos você se sentir linda
         </Texto>
