@@ -1,11 +1,11 @@
 import React from "react";
 import { ScrollView, StyleSheet, Image, Dimensions, View } from "react-native";
 
-import Imagens from "../imagens.js"
-import Header from '../../componentes/Header.js';
+import Imagens from './imagens.js'
+import Header from '../componentes/Header.js';
 
-import cupom from "../../../assets/cupom.jpg";
-import promo from "../../../assets/promo.jpg";
+import cupom from "../../assets/cupom.jpg";
+import promo from "../../assets/promo.jpg";
 
 
 export default function Home () {

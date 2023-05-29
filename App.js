@@ -9,8 +9,7 @@ import {
   Montserrat_700Bold,
 } from '@expo-google-fonts/montserrat';
 
-import Home from './src/telas/Home';
-import mock from './src/mocks/cesta';
+import Home from './src/telas/Home/home';
 import Sobre from './src/telas/sobre';
 import Imagens from './src/telas/imagens';
 import Contato from './src/telas/contato';
@@ -18,7 +17,7 @@ import Contato from './src/telas/contato';
 function MenuCesta() {
   return (
     <SafeAreaView>
-      <Home {...mock} />
+      <Home />
       <StatusBar />
     </SafeAreaView>
   );
@@ -41,14 +40,14 @@ function TabsMenu() {
             iconName = focused
               ? 'home'
               : 'home-outline';
-          } else if (route.name === 'Sobre') {
-            iconName = focused
-              ? 'chatbubble-ellipses'
-              : 'chatbubble-ellipses-outline';
           } else if (route.name === 'Catalogo') {
             iconName = focused
               ? 'shirt'
               : 'shirt-outline';
+          } else if (route.name === 'Sobre') {
+            iconName = focused
+              ? 'chatbubble-ellipses'
+              : 'chatbubble-ellipses-outline';
           } else if (route.name === 'Contato') {
             iconName = focused
               ? 'chatbubble'
@@ -63,8 +62,8 @@ function TabsMenu() {
     }
     >
       <Tab.Screen name="Home" component={MenuCesta}  />
-      <Tab.Screen name="Sobre" component={Sobre} />
       <Tab.Screen name="Catalogo" component={Imagens} />
+      <Tab.Screen name="Sobre" component={Sobre} />
       <Tab.Screen name="Contato" component={Contato} />
     </Tab.Navigator>
 
