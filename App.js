@@ -6,12 +6,12 @@ import { StatusBar, SafeAreaView, View, StyleSheet } from 'react-native';
 import {
   useFonts,
   Montserrat_400Regular,
-  Montserrat_700Bold,
+  Montserrat_700Bold
 } from '@expo-google-fonts/montserrat';
-
 import Home from './src/telas/Home';
 import mock from './src/mocks/cesta';
 import Sobre from './src/telas/sobre';
+import Catalogo from './src/telas/Catalogo/catalogo';
 import Imagens from './src/telas/imagens';
 
 function MenuCesta() {
@@ -64,7 +64,7 @@ function TabsMenu() {
     >
       <Tab.Screen name="Home" component={MenuCesta}  />
       <Tab.Screen name="Sobre" component={Sobre} />
-      <Tab.Screen name="Catalogo" component={Imagens} />
+      <Tab.Screen name="Catalogo" component={Catalogo} />
       <Tab.Screen name="Contato" component={Imagens} />
     </Tab.Navigator>
 
@@ -85,8 +85,8 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <TabsMenu />
-    </NavigationContainer>
+      <NavigationContainer>
+        <TabsMenu />
+      </NavigationContainer>
   );
 }
