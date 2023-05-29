@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { StatusBar, SafeAreaView, View, StyleSheet } from 'react-native';
+import { StatusBar, SafeAreaView, View } from 'react-native';
 import {
   useFonts,
   Montserrat_400Regular,
@@ -13,6 +13,7 @@ import Home from './src/telas/Home';
 import mock from './src/mocks/cesta';
 import Sobre from './src/telas/sobre';
 import Imagens from './src/telas/imagens';
+import Contato from './src/telas/contato';
 
 function MenuCesta() {
   return (
@@ -23,7 +24,6 @@ function MenuCesta() {
   );
 }
 
-
 const Tab = createBottomTabNavigator();
 
 function TabsMenu() {
@@ -33,7 +33,7 @@ function TabsMenu() {
       screenOptions={
         ({ route }) => ({
         headerShown: false,
-        tabBarStyle: { backgroundColor: "#211F20" },
+        tabBarStyle: { backgroundColor: "#211F20"},
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -65,7 +65,7 @@ function TabsMenu() {
       <Tab.Screen name="Home" component={MenuCesta}  />
       <Tab.Screen name="Sobre" component={Sobre} />
       <Tab.Screen name="Catalogo" component={Imagens} />
-      <Tab.Screen name="Contato" component={Imagens} />
+      <Tab.Screen name="Contato" component={Contato} />
     </Tab.Navigator>
 
   );
