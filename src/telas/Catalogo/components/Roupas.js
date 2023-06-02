@@ -5,10 +5,10 @@ import Texto from '../../../componentes/Texto';
 export default function Roupas(props) {
 
     function filtroNome(nomeItem){
-        if(nomeItem.length < 27){
+        if(nomeItem.length < 20){
             return nomeItem;
         }
-        return `${nomeItem.substring(0, 20)}...`;
+        return `${nomeItem.substring(0, 19)}...`;
     }
     return (
         <TouchableOpacity style={estilos.container} onPress={props.onClick}>
