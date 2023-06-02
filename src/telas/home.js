@@ -7,7 +7,6 @@ import Header from '../componentes/Header.js';
 import cupom from "../../assets/cupom.jpg";
 import promo from "../../assets/promo.jpg";
 
-
 export default function Home () {
     return <>
         <ScrollView>

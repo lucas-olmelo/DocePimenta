@@ -11,7 +11,6 @@ import {
 import Home from './src/telas/home';
 import Sobre from './src/telas/sobre';
 import Catalogo from './src/telas/Catalogo/catalogo';
-import Carrossel from './src/componentes/Carrossel';
 import Contato from './src/telas/contato';
 
 function MenuCesta() {
@@ -32,7 +31,7 @@ function TabsMenu() {
       screenOptions={
         ({ route }) => ({
         headerShown: false,
-        tabBarStyle: { backgroundColor: "#211F20", height: 55, paddingTop: 10},
+        tabBarStyle: { backgroundColor: "#211F20", height: 55, paddingTop: 5, paddingBottom: 5},
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
