@@ -6,12 +6,12 @@ import { StatusBar, SafeAreaView, View } from 'react-native';
 import {
   useFonts,
   Montserrat_400Regular,
-  Montserrat_700Bold,
+  Montserrat_700Bold
 } from '@expo-google-fonts/montserrat';
-
-import Home from './src/telas/Home/home';
+import Home from './src/telas/home';
 import Sobre from './src/telas/sobre';
-import Imagens from './src/telas/imagens';
+import Catalogo from './src/telas/Catalogo/catalogo';
+import Carrossel from './src/componentes/Carrossel';
 import Contato from './src/telas/contato';
 
 function MenuCesta() {
@@ -32,7 +32,7 @@ function TabsMenu() {
       screenOptions={
         ({ route }) => ({
         headerShown: false,
-        tabBarStyle: { backgroundColor: "#211F20"},
+        tabBarStyle: { backgroundColor: "#211F20", height: 55, paddingTop: 10},
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -40,7 +40,7 @@ function TabsMenu() {
             iconName = focused
               ? 'home'
               : 'home-outline';
-          } else if (route.name === 'Catalogo') {
+          } else if (route.name === 'Catálogo') {
             iconName = focused
               ? 'shirt'
               : 'shirt-outline';
@@ -62,8 +62,8 @@ function TabsMenu() {
     }
     >
       <Tab.Screen name="Home" component={MenuCesta}  />
-      <Tab.Screen name="Catalogo" component={Imagens} />
       <Tab.Screen name="Sobre" component={Sobre} />
+      <Tab.Screen name="Catálogo" component={Catalogo} />
       <Tab.Screen name="Contato" component={Contato} />
     </Tab.Navigator>
 
@@ -84,8 +84,8 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <TabsMenu />
-    </NavigationContainer>
+      <NavigationContainer>
+        <TabsMenu />
+      </NavigationContainer>
   );
 }
