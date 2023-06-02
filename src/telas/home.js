@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, Image, Dimensions, View } from "react-native";
 
-import Imagens from './imagens.js'
+import Carrossel from '../componentes/Carrossel.js'
 import Header from '../componentes/Header.js';
 
 import cupom from "../../assets/cupom.jpg";
@@ -12,7 +12,7 @@ export default function Home () {
     return <>
         <ScrollView>
             <Header style={estilos.header}/>
-            <Imagens style={estilos.carrosel}/>
+            <Carrossel style={estilos.carrosel}/>
             <View style={estilos.container}>
                 <Image style={estilos.imagem} source={cupom}/>
                 <Image style={estilos.imagem} source={promo}/>

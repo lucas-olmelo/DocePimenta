@@ -2,13 +2,12 @@ import React from 'react';
 import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import Carousel, { PaginationLight } from 'react-native-x-carousel';
 
-import logo from '../../assets/logo.png';
 import modelo from '../../assets/modelos/modelo.jpg';
-import modelo1 from '../../assets/modelos//modelo1.jpg';
-import modelo2 from '../../assets/modelos//modelo2.jpg';
-import modelo3 from '../../assets/modelos//modelo3.jpg';
-import modelo4 from '../../assets/modelos//modelo4.jpg';
-import Texto from '../componentes/Texto';
+import modelo1 from '../../assets/modelos/modelo1.jpg';
+import modelo2 from '../../assets/modelos/modelo2.jpg';
+import modelo3 from '../../assets/modelos/modelo3.jpg';
+import modelo4 from '../../assets/modelos/modelo4.jpg';
+import Texto from './Texto';
 
 
 const { width } = Dimensions.get('window');
@@ -17,31 +16,31 @@ const DATA = [
 	{
 		coverImageUri: modelo,
 		cornerLabelColor: '#FFD300',
-		cornerLabelText: 'Especial'
+		cornerLabelText: 'Conjunto rosa florido'
 	},
 	{
 		coverImageUri: modelo1,
-		cornerLabelColor: '#0080FF',
-		cornerLabelText: 'Dia das mães'
+		cornerLabelColor: '#EB7813',
+		cornerLabelText: 'Coleção divas do inverno'
 	},
 	{
 		coverImageUri: modelo2,
-		cornerLabelColor: '#FFD300',
-		cornerLabelText: 'Especial'
+		cornerLabelColor: '#03fc17',
+		cornerLabelText: 'Coleção outono-inverno'
 	},
 	{
 		coverImageUri: modelo3,
-		cornerLabelColor: '#FFD300',
-		cornerLabelText: 'Especial'
+		cornerLabelColor: '#b113eb',
+		cornerLabelText: 'Calça bege'
 	},
 	{
 		coverImageUri: modelo4,
-		cornerLabelColor: '#FFD300',
-		cornerLabelText: 'Especial'
+		cornerLabelColor: '#1378eb',
+		cornerLabelText: 'Sobretudo marrom'
 	}
 ]
 
-const Imagens = () => {
+const Carrossel = () => {
 
 	const renderItem = data => (
 		<View style={styles.cardContainer} key={data.coverImageUri}>
@@ -65,7 +64,7 @@ const Imagens = () => {
 	</View>
 }
 
-export default Imagens;
+export default Carrossel;
 
 const styles = StyleSheet.create({
 	container: {
