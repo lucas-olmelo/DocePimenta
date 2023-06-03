@@ -29,32 +29,67 @@ export default function Catalogo () {
         <Texto style={estilos.text}>LANÇAMENTOS</Texto>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-          <Roupas img={require('../../../assets/roupas/teste.png')} cost="R$115,00" onclick={()=> navigation.navigate('./Pages/detalhe_produto')}>
-            Vestido Bonito :)
+          <Roupas img={require('../../../assets/roupas/conjunto_flores.png')} cost="R$250,00" onclick={()=> navigation.navigate('./Pages/detalhe_produto')}>
+            Conjunto Rosa Florido
           </Roupas>
-          <Roupas img={require('../../../assets/roupas/teste2.png')} cost="R$180,00" >
-            Vestido Feio :(
-          </Roupas>
-        </View>
-
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-          <Roupas img={require('../../../assets/roupas/teste7.png')} cost="R$145,00">
-            Vestido Bonito :)
-          </Roupas>
-          <Roupas img={require('../../../assets/roupas/teste4.png')} cost="R$200,00">
-            Vestido Feio :(
+          <Roupas img={require('../../../assets/roupas/vestido_azul.png')} cost="R$230,00" >
+            Conjunto azul
           </Roupas>
         </View>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-          <Roupas img={require('../../../assets/roupas/teste5.png')} cost="R$300,00">
-            Vestido Bonito :)
+          <Roupas img={require('../../../assets/roupas/velma.png')} cost="R$190,00">
+              Cosplay Velma
           </Roupas>
-          <Roupas img={require('../../../assets/roupas/teste6.png')} cost="R$250,00">
-            Vestido Feio :(
+          <Roupas img={require('../../../assets/roupas/saia_quadriculada.png')} cost="R$300,00">
+            Saia Xadrez branco caramelo
           </Roupas>
         </View>
 
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
+          <Roupas img={require('../../../assets/roupas/macacao_listrado.png')} cost="R$100,00">
+            Macacão listrado
+          </Roupas>
+          <Roupas img={require('../../../assets/roupas/macacao_vermelho.png')} cost="R$250,00">
+            Vestido primavera vermelho
+          </Roupas>
+        </View>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
+          <Roupas img={require('../../../assets/roupas/look_mulher_moderna.png')} cost="R$400,00">
+            Jaqueta branco com calça listrada
+          </Roupas>
+          <Roupas img={require('../../../assets/roupas/look_evento.png')} cost="R$250,00">
+            Calça beje
+          </Roupas>
+        </View>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
+          <Roupas img={require('../../../assets/roupas/espanhola.png')} cost="R$300,00">
+            Look salsa e merengue
+          </Roupas>
+          <Roupas img={require('../../../assets/roupas/corset.png')} cost="R$500,00">
+            Corset com calça de couro e camisa
+          </Roupas>
+        </View>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
+          <Roupas img={require('../../../assets/roupas/conjunto_xadrez.png')} cost="R$210,00">
+            Conjunto quadriculado
+          </Roupas>
+          <Roupas img={require('../../../assets/roupas/conjunto_primavera.png')} cost="R$340,00">
+            Conjunto plus-size
+          </Roupas>
+        </View>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
+          <Roupas img={require('../../../assets/roupas/blusinha_onca.png')} cost="R$100,00">
+            Sobretudo marrom
+          </Roupas>
+          <Roupas img={require('../../../assets/roupas/blusa_short_couro.png')} cost="R$420,00">
+            Blusa de couro
+          </Roupas>
+        </View>
         </ScrollView>
     </>
 }
