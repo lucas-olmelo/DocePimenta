@@ -16,12 +16,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#211F20',
         display: "flex",
         alignItems: 'center',
-        borderBottomLeftRadius: 50,
-        borderBottomRightRadius: 50
+        paddingVertical: 15
     },
 
     image: {
-        width: width * 0.5,
-        height: width * 0.3
+        width: width * 0.7,
+        height: width * 0.2
     }
 })

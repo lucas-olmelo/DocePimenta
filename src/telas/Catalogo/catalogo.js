@@ -60,7 +60,7 @@ export default function Catalogo () {
             Jaqueta branco com calça listrada
           </Roupas>
           <Roupas img={require('../../../assets/roupas/look_evento.png')} cost="R$250,00">
-            Calça beje
+            Calça bege
           </Roupas>
         </View>
 
