@@ -2,11 +2,11 @@ import React from 'react';
 import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import Carousel, { PaginationLight } from 'react-native-x-carousel';
 
-import modelo from '../../assets/modelos/modelo.jpg';
-import modelo1 from '../../assets/modelos/modelo1.jpg';
-import modelo2 from '../../assets/modelos/modelo2.jpg';
-import modelo3 from '../../assets/modelos/modelo3.jpg';
-import modelo4 from '../../assets/modelos/modelo4.jpg';
+import modelo from '../../assets/roupas/conjunto_flores.png';
+import modelo1 from '../../assets/roupas/divas_inverno.jpg';
+import modelo2 from '../../assets/roupas/outono_inverno.jpg';
+import modelo3 from '../../assets/roupas/look_evento.png';
+import modelo4 from '../../assets/roupas/blusinha_onca.png';
 import Texto from './Texto';
 
 
