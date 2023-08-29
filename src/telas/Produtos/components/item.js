@@ -1,23 +1,41 @@
-import React from "react";
+import React, {useState} from "react";
 import Texto from '../../../componentes/Texto.js'
+import CampoInteiro from '../../../componentes/CampoInteiro'
 import estilos from "../styles/estilos.js";
-import { Button, TextInput, View } from "react-native";
+import { Button, View } from "react-native";
 
 export default function Item({ nome, descricao, preco }) {
+
+    const [quantidade, setQuantidade] = useState(1);
+    const [total, setTotal] = useState(preco);
+
+    const calculaTotal = (quantidade) => {
+        setTotal(quantidade * preco)
+    };
+
+    const atualizaQtdTotal = (novaQtd) => {
+        setQuantidade(novaQtd);
+        calculaTotal(novaQtd);
+    }
+
     return <>
         <View style={estilos.produtos}>
             <Texto style={estilos.nome}>{nome}</Texto>
             <Texto style={estilos.descricao}>{descricao}</Texto>
-            <Texto style={estilos.preco}>{preco}</Texto>
+            <Texto style={estilos.preco}>
+                {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
+                .format(preco)}
+            </Texto>
         </View>
         <View style={estilos.listaDesejos}>
             <View style={estilos.posicao}>
                 <Texto>Quantidade:</Texto>
-                <TextInput value="0" />
+                <CampoInteiro valor={quantidade} acao={atualizaQtdTotal}/>
             </View>
             <View style={estilos.posicao}>
-                <Texto>Preço:</Texto>
-                <Texto>0.00</Texto>
+                <Texto>Total:</Texto>
+                <Texto>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
+                .format(total)}</Texto>
             </View>
             <Button title="Adicionar"/>
         </View>
