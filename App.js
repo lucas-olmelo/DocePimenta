@@ -10,11 +10,13 @@ import {
   Montserrat_400Regular,
   Montserrat_700Bold
 } from '@expo-google-fonts/montserrat';
+
 import Home from './src/telas/home';
 import Sobre from './src/telas/sobre';
 import Catalogo from './src/telas/Catalogo/catalogo';
 import Contato from './src/telas/contato';
 import Produtos from './src/telas/Produtos/produtos';
+import ListaDesejos from './src/telas/ListaDesejos/listaDesejos';
 
 function MenuCesta() {
   return (
@@ -58,6 +60,10 @@ function TabsMenu() {
             iconName = focused
               ? 'list'
               : 'list-outline';
+          } else if (route.name === 'Favoritos') {
+            iconName = focused
+              ? 'heart'
+              : 'heart-outline';
           }
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -72,6 +78,7 @@ function TabsMenu() {
       <Tab.Screen name="Catálogo" component={Catalogo} />
       <Tab.Screen name="Contato" component={Contato} />
       <Tab.Screen name="Produtos" component={Produtos} />
+      <Tab.Screen name="Favoritos" component={ListaDesejos} />
     </Tab.Navigator>
 
   );
