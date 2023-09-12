@@ -12,7 +12,7 @@ export default function Botao({texto, style}) {
 const styles = StyleSheet.create({
     button: {
         marginTop: 16,
-        paddingVertical: 12,
+        paddingVertical: 5,
         borderRadius: 6
     },
     buttonText: {

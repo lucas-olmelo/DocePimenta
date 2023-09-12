@@ -14,14 +14,17 @@ import {
 import Home from './src/telas/home';
 import Sobre from './src/telas/sobre';
 import Catalogo from './src/telas/Catalogo/catalogo';
+import NovoCatalogo from './src/telas/NovoCatalogo/novoCatalogo';
 import Contato from './src/telas/contato';
 import Produtos from './src/telas/Produtos/produtos';
 import ListaDesejos from './src/telas/ListaDesejos/listaDesejos';
 
+import mock from './src/mocks/roupas';
+
 function MenuCesta() {
   return (
     <SafeAreaView>
-      <Home />
+      <Home/>
       <StatusBar />
     </SafeAreaView>
   );
@@ -75,7 +78,7 @@ function TabsMenu() {
     >
       <Tab.Screen name="Home" component={MenuCesta}  />
       <Tab.Screen name="Sobre" component={Sobre} />
-      <Tab.Screen name="Catálogo" component={Catalogo} />
+      <Tab.Screen name="Catálogo" component={NovoCatalogo} />
       <Tab.Screen name="Contato" component={Contato} />
       <Tab.Screen name="Produtos" component={Produtos} />
       <Tab.Screen name="Favoritos" component={ListaDesejos} />
