@@ -5,16 +5,9 @@ import Texto from '../../componentes/Texto';
 import { MaterialIcons } from '@expo/vector-icons'
 import estilos from "./styles/estilos";
 import Item from "./components/item.js";
-
-import imge from '../../../assets/roupas/conjunto_flores.png'
-
+import roupas from '../../mocks/roupas.js';
 
 export default function NovoCatalogo () {
-
-    const roupas = [
-        
-    ]
-
 
     return <>
         <Header />

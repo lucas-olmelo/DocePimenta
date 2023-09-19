@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import estilos from "../styles/estilos.js";
-import { View, TouchableOpacity, Image, Button } from "react-native";
+import { View, TouchableOpacity, Image } from "react-native";
 import Texto from '../../../componentes/Texto';
 import Botao from '../../../componentes/Botao';
 import CampoInteiro from '../../../componentes/CampoInteiro';
-import imge from '../../../../assets/roupas/conjunto_flores.png'
 
 export default function Item({nome, preco, img}) {
 
@@ -38,13 +37,21 @@ export default function Item({nome, preco, img}) {
     return <>
         <View>
             <TouchableOpacity style={estilos.container} onPress={inverteExpandir}>
-                <Image
-                    source={img}
-                    style={estilos.shoesImg}
-                />
+                { !expandir &&
+                    <Image
+                        source={img}
+                        style={estilos.shoesImg}
+                    />
+                }
+                { expandir &&
+                    <Image
+                        source={img}
+                        style={estilos.prodImg}
+                    />
+                }
                 <View style={estilos.textBox}>
                     <Texto style={estilos.shoesText}>
-                        {(img)}
+                        {(nome)}
                     </Texto>
                     <View opacity={0.4}>
                         <Texto style={estilos.shoesText}> {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(preco)} </Texto>

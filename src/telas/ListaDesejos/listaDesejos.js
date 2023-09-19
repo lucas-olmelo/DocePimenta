@@ -2,32 +2,16 @@ import React from "react";
 import Item from "./components/item.js";
 import StatusLista from '../../componentes/statusLista';
 import { FlatList, SafeAreaView } from "react-native";
-
-const produtos = [
-    {
-        id: 1,
-        nome: 'Cesta Inverno',
-        preco: 79.90,
-        descricao: 'Cesta de frutas típicas do inverno',
-        qtde: 1
-    },
-    {
-        id: 2,
-        nome: 'Cesta Verão',
-        preco: 89.90,
-        descricao: 'Cesta de frutas típicas do verão',
-        qtde: 2
-    }
-];
+import lista from "../../mocks/lista.js";
 
 export default function ListaDesejos() {
 
-    const total = produtos.reduce((soma, {preco, qtde}) => soma + (preco * qtde), 0);
+    const total = lista.reduce((soma, {preco, qtde}) => soma + (preco * qtde), 0);
 
     return <SafeAreaView>
         <StatusLista total={total} />
         <FlatList
-			data={produtos}
+			data={lista}
 			renderItem={({item}) => (<Item {...item}/>)}
             keyExtractor={({id}) => (String(id))}
         />

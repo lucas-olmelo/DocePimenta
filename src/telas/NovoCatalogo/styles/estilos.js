@@ -17,7 +17,7 @@ export default StyleSheet.create({
     },
     container:{
         flexDirection: 'row',
-        paddingVertical: '2%',
+        padding: '2%',
         alignItems: 'center',
     },
     textBox: {
@@ -27,8 +27,13 @@ export default StyleSheet.create({
     },
     shoesImg:{
         marginTop: 15,
-        width: 175,
-        height: 175
+        width: 100,
+        height: 100
+    },
+    prodImg:{
+        marginTop: 15,
+        width: 165,
+        height: 165
     },
     shoesText:{
         fontSize: 20
