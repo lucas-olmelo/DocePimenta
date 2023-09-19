@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     conteudo: {
-        backgroundColor: 'purple',
+        backgroundColor: '#211F20',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
@@ -21,7 +21,7 @@ export default StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         marginVertical: 6,
-        color: 'orange',
+        color: 'red',
     },
     botao: {
         flexGrow: 1,
