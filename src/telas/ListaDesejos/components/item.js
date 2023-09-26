@@ -4,7 +4,7 @@ import CampoInteiro from '../../../componentes/CampoInteiro';
 import estilos from "../styles/estilos.js";
 import { Button, View } from "react-native";
 
-export default function Item({ nome, descricao, preco, qtde: qtdeInicial }) {
+export default function Item({ nome, preco, img, qtde: qtdeInicial }) {
 
     const [quantidade, setQuantidade] = useState(qtdeInicial);
     const [total, setTotal] = useState(preco * qtdeInicial);
@@ -21,7 +21,6 @@ export default function Item({ nome, descricao, preco, qtde: qtdeInicial }) {
     return <>
         <View style={estilos.produtos}>
             <Texto style={estilos.nome}>{nome}</Texto>
-            <Texto style={estilos.descricao}>{descricao}</Texto>
             <Texto style={estilos.preco}>
                 {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
                 .format(preco)}

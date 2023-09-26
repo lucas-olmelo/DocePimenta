@@ -15,7 +15,6 @@ import Home from './src/telas/home';
 import Sobre from './src/telas/sobre';
 import NovoCatalogo from './src/telas/NovoCatalogo/novoCatalogo';
 import Contato from './src/telas/contato';
-import Produtos from './src/telas/Produtos/produtos';
 import ListaDesejos from './src/telas/ListaDesejos/listaDesejos';
 
 function MenuCesta() {

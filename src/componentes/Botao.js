@@ -12,14 +12,14 @@ export default function Botao({texto, style}) {
 const styles = StyleSheet.create({
     button: {
         marginTop: 16,
-        paddingVertical: 5,
-        borderRadius: 6
+        padding: 5,
+        borderRadius: 6,
+        marginHorizontal: 5
     },
     buttonText: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 20,
-        lineHeight: 26,
         textAlign: 'center'
     }
 });

@@ -36,44 +36,48 @@ export default function Item({nome, preco, img}) {
 
     return <>
         <View>
-            <TouchableOpacity style={estilos.container} onPress={inverteExpandir}>
                 { !expandir &&
-                    <Image
-                        source={img}
-                        style={estilos.shoesImg}
-                    />
+                    <TouchableOpacity style={estilos.container} onPress={inverteExpandir}>
+                        <Image
+                            source={img}
+                            style={estilos.shoesImg}
+                        />
+                        <View style={estilos.textBox}>
+                            <Texto style={estilos.shoesText}>
+                                {(nome)}
+                            </Texto>
+                            <View opacity={0.4}>
+                                <Texto style={estilos.priceText}> {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(preco)} </Texto>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
                 }
                 { expandir &&
-                    <Image
-                        source={img}
-                        style={estilos.prodImg}
-                    />
-                }
-                <View style={estilos.textBox}>
-                    <Texto style={estilos.shoesText}>
-                        {(nome)}
-                    </Texto>
-                    <View opacity={0.4}>
-                        <Texto style={estilos.shoesText}> {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(preco)} </Texto>
-                    </View>
-                    { expandir &&
+                    <TouchableOpacity style={estilos.containerExp} onPress={inverteExpandir}>
+                        <Image
+                            source={img}
+                            style={estilos.prodImg}
+                        />
+                        <Texto style={estilos.roupaText}>
+                                {(nome)}
+                        </Texto>
                         <View style={estilos.listaDesejos}>
                             <View style={estilos.nomePreco}>
                                 <View style={estilos.posicao}>
-                                    <Texto style={estilos.textoNomePreco}>Quantidade: </Texto>
+                                    <Texto style={estilos.textoNome}>Quantidade: </Texto>
                                     <CampoInteiro style={estilos.textoNomePreco} valor={quantidade} acao={atualizaQtdTotal}/>
                                 </View>
                                 <View style={estilos.posicao}>
-                                    <Texto style={estilos.textoNomePreco}>Total: </Texto>
+                                    <Texto style={estilos.textoNome}>Total: </Texto>
                                     <Texto style={estilos.textoNomePreco}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
                                     .format(total)}</Texto>
                                 </View>
                             </View>
                             <Botao texto='Adicionar' style={{backgroundColor: 'black', width: 220}}/>
                         </View>
-                    }
-                </View>
-            </TouchableOpacity>
+                    </TouchableOpacity>
+                }
+            
         </View>
     </>
 }
