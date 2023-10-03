@@ -24,13 +24,13 @@ export default function NovoCatalogo () {
             </TouchableOpacity>
         </View>
         <View style={estilos.line} />
-        <ScrollView>
+        <View>
             <Texto style={estilos.text}>LANÇAMENTOS</Texto>
             <FlatList
                 data={roupas}
                 renderItem={({item}) => (<Item {...item}/>)}
                 keyExtractor={({id}) => (String(id))}
             />
-        </ScrollView>
+        </View>
     </>
 }

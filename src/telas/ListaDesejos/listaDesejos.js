@@ -1,10 +1,10 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
 import Item from "./components/item.js";
 import StatusLista from '../../componentes/statusLista';
 import { FlatList, SafeAreaView } from "react-native";
-import lista from "../../mocks/lista.js";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function ListaDesejos() {
+export default  function ListaDesejos() {
 
     const total = lista.reduce((soma, {preco, qtde}) => soma + (preco * qtde), 0);
 

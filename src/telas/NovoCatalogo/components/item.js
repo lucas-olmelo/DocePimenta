@@ -1,11 +1,13 @@
 import React, {useState} from "react";
+import { View, TouchableOpacity, Image, Button } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import estilos from "../styles/estilos.js";
-import { View, TouchableOpacity, Image } from "react-native";
 import Texto from '../../../componentes/Texto';
 import Botao from '../../../componentes/Botao';
 import CampoInteiro from '../../../componentes/CampoInteiro';
 
-export default function Item({nome, preco, img}) {
+export default function Item({id, nome, preco, img}) {
 
     const [expandir, setExpandir] = useState(false);
     const [total, setTotal] = useState(preco);
@@ -21,18 +23,45 @@ export default function Item({nome, preco, img}) {
     };
 
     function filtroNome(nome){
-        if(nome.length < 20){
+        if(nome.length < 24){
             return nome;
         }
-        return `${nome.substring(0, 19)}...`;
+        return `${nome.substring(0, 23)}...`;
     }
 
     const inverteExpandir = () => {
         setExpandir(!expandir);
-
+        
         //Retorna a quantidade para o estado padrão
         setQuantidade(1);
     };
+    
+    async function addListaDesejos(id, nome, preco, img, quantidade) {
+        
+        const addProduto = [{
+            id: id,
+            nome: nome,
+            preco: preco,
+            img: img,
+            quantidade: quantidade
+        }]
+
+        const listaDesejosSalva = await AsyncStorage.getItem('ListaDesejos');
+        if (listaDesejosSalva !== null) {
+            const listaDesejos = JSON.parse(listaDesejosSalva);
+
+            listaDesejos.push({id: id, nome: nome, preco: preco, img: img, quantidade: quantidade});
+            const listaDesejosAtualizada = JSON.stringify(listaDesejos);
+            await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+
+            console.log(listaDesejos);
+        } else {
+            const listaDesejosAtualizada = JSON.stringify(addProduto);
+            
+            await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+            console.log('Inseriu item na lista');
+        }
+    }
 
     return <>
         <View>
@@ -44,7 +73,7 @@ export default function Item({nome, preco, img}) {
                         />
                         <View style={estilos.textBox}>
                             <Texto style={estilos.shoesText}>
-                                {(nome)}
+                                {filtroNome(nome)}
                             </Texto>
                             <View opacity={0.4}>
                                 <Texto style={estilos.priceText}> {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(preco)} </Texto>
@@ -73,7 +102,7 @@ export default function Item({nome, preco, img}) {
                                     .format(total)}</Texto>
                                 </View>
                             </View>
-                            <Botao texto='Adicionar' style={{backgroundColor: 'black', width: 220}}/>
+                            <Botao texto='Adicionar' acao={() => addListaDesejos(id, nome, preco, img, quantidade)} style={{backgroundColor: 'black', width: 220}}/>
                         </View>
                     </TouchableOpacity>
                 }
