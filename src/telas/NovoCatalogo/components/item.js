@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, TouchableOpacity, Image, Button } from "react-native";
+import { View, TouchableOpacity, Image } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import estilos from "../styles/estilos.js";
@@ -23,10 +23,10 @@ export default function Item({id, nome, preco, img}) {
     };
 
     function filtroNome(nome){
-        if(nome.length < 24){
+        if(nome.length < 22){
             return nome;
         }
-        return `${nome.substring(0, 23)}...`;
+        return `${nome.substring(0, 20)}...`;
     }
 
     const inverteExpandir = () => {

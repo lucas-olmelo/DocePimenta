@@ -2,30 +2,37 @@ import React from "react-native";
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-    nome: {
-        color: 'orange',
-        fontWeight: "bold",
-        fontSize: 28
-    },
-    descricao: {
-        color: 'black',
-        fontSize: 18,
-    },
-    preco: {
-        color: 'purple',
-        fontSize: 24,
-        fontWeight: 'bold',
-        textAlign: 'right',
-    },
+    
     produtos: {
+        flexDirection: 'row',
+        padding: '2%',
+        alignItems: 'center',
         padding: 20
+    },
+    textBox: {
+        flexDirection: 'column',
+        paddingHorizontal: 10,
+        width: '100%'
+    },
+    shoesImg:{
+        marginTop: 15,
+        width: 100,
+        height: 100
+    },
+    shoesText:{
+        fontSize: 20,
+        color: 'red'
+    },
+    priceText: {
+        fontSize: 20,
+        color: 'black'
     },
     listaDesejos: {
         paddingHorizontal: 24,
         paddingBottom: 24,
         flexDirection: "row",
         justifyContent: 'space-between',
-        alignItems: "flex-start",
+        alignItems: "center",
         flexWrap: 'wrap'
     },
     desejos: {
@@ -37,6 +44,6 @@ export default StyleSheet.create({
     divisor: {
         marginHorizontal: 24,
         borderBottomWidth: 1,
-        borderBottomColor: 'purple'
+        borderBottomColor: 'black'
     }
 });

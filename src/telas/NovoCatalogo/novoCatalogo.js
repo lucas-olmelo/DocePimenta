@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, TouchableOpacity, FlatList } from 'react-native';
+import { View, TouchableOpacity, FlatList } from 'react-native';
 import Header from '../../componentes/Header';
 import Texto from '../../componentes/Texto';
 import { MaterialIcons } from '@expo/vector-icons'
