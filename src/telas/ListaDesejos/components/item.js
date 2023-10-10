@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Texto from '../../../componentes/Texto.js';
+import Botao from "../../../componentes/Botao.js";
 import CampoInteiro from '../../../componentes/CampoInteiro';
 import estilos from "../styles/estilos.js";
 import { View, Image, TouchableOpacity } from "react-native";
-import Botao from "../../../componentes/Botao.js";
 
 export default function Item({ nome, preco, img, qtde: qtdeInicial }) {
 
@@ -36,7 +36,6 @@ export default function Item({ nome, preco, img, qtde: qtdeInicial }) {
     }
 
     return <>
-
         <TouchableOpacity style={estilos.produtos} onPress={inverteExpandir}>
             <Image
                 source={img}
@@ -53,17 +52,18 @@ export default function Item({ nome, preco, img, qtde: qtdeInicial }) {
         </TouchableOpacity>
         { expandir &&
             <View style={estilos.listaDesejos}>
-            <View style={estilos.posicao}>
-                <Texto>Quantidade:</Texto>
-                <CampoInteiro valor={quantidade} acao={atualizaQtdTotal} />
+                <View style={estilos.posicao}>
+                    <Texto>Quantidade:</Texto>
+                    <CampoInteiro valor={quantidade} acao={atualizaQtdTotal} />
+                </View>
+                <View style={estilos.posicao}>
+                    <Texto>Total:</Texto>
+                    <Texto>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+                        .format(total)}</Texto>
+                </View>
+                <Botao texto='Remover' style={{backgroundColor: 'black'}}></Botao>
             </View>
-            <View style={estilos.posicao}>
-                <Texto>Total:</Texto>
-                <Texto>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
-                    .format(total)}</Texto>
-            </View>
-            <Botao texto='Remover' style={{backgroundColor: 'black'}}></Botao>
-        </View>}
+        }
         <View style={estilos.divisor} />
     </>
 }

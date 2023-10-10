@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollView, StyleSheet, Image, Dimensions, View } from "react-native";
-
 import Carrossel from '../componentes/Carrossel.js'
 import Header from '../componentes/Header.js';
 import { Video, ResizeMode } from "expo-av";

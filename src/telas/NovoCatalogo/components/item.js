@@ -6,6 +6,7 @@ import estilos from "../styles/estilos.js";
 import Texto from '../../../componentes/Texto';
 import Botao from '../../../componentes/Botao';
 import CampoInteiro from '../../../componentes/CampoInteiro';
+import ListaDesejos from "../../ListaDesejos/listaDesejos.js";
 
 export default function Item({id, nome, preco, img}) {
 
@@ -43,18 +44,26 @@ export default function Item({id, nome, preco, img}) {
             nome: nome,
             preco: preco,
             img: img,
-            quantidade: quantidade
+            qtde: quantidade
         }]
 
         const listaDesejosSalva = await AsyncStorage.getItem('ListaDesejos');
         if (listaDesejosSalva !== null) {
             const listaDesejos = JSON.parse(listaDesejosSalva);
+            
+            listaDesejos.forEach(item => {
+                if (item.id === id) {
+                   
+                } else {
+                    listaDesejos.push({id: id, nome: nome, preco: preco, img: img, qtde: quantidade});
+                    const listaDesejosAtualizada = JSON.stringify(listaDesejos);
+                    AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
 
-            listaDesejos.push({id: id, nome: nome, preco: preco, img: img, quantidade: quantidade});
-            const listaDesejosAtualizada = JSON.stringify(listaDesejos);
-            await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+                    console.log(listaDesejos);
+                }
+            });
 
-            console.log(listaDesejos);
+            
         } else {
             const listaDesejosAtualizada = JSON.stringify(addProduto);
             
@@ -106,7 +115,6 @@ export default function Item({id, nome, preco, img}) {
                         </View>
                     </TouchableOpacity>
                 }
-            
         </View>
     </>
 }
