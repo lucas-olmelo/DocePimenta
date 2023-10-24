@@ -6,7 +6,6 @@ import estilos from "../styles/estilos.js";
 import Texto from '../../../componentes/Texto';
 import Botao from '../../../componentes/Botao';
 import CampoInteiro from '../../../componentes/CampoInteiro';
-import ListaDesejos from "../../ListaDesejos/listaDesejos.js";
 
 export default function Item({id, nome, preco, img}) {
 
@@ -32,7 +31,6 @@ export default function Item({id, nome, preco, img}) {
 
     const inverteExpandir = () => {
         setExpandir(!expandir);
-        
         //Retorna a quantidade para o estado padrão
         setQuantidade(1);
     };
@@ -51,19 +49,20 @@ export default function Item({id, nome, preco, img}) {
         if (listaDesejosSalva !== null) {
             const listaDesejos = JSON.parse(listaDesejosSalva);
             
-            listaDesejos.forEach(item => {
-                if (item.id === id) {
-                   
-                } else {
-                    listaDesejos.push({id: id, nome: nome, preco: preco, img: img, qtde: quantidade});
-                    const listaDesejosAtualizada = JSON.stringify(listaDesejos);
-                    AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+            listaDesejos.forEach(async item => {
+                if (String(id) === String(item.id)) {
+                    const index = listaDesejos.findIndex(item => item.id === id)
+                    quantidade = item.qtde + 1;
+                    listaDesejos.splice(index, 1);
+                } 
+            })
 
-                    console.log(listaDesejos);
-                }
-            });
+            listaDesejos.push({id: id, nome: nome, preco: preco, img: img, qtde: quantidade});
+            const listaDesejosAtualizada = JSON.stringify(listaDesejos);
+            await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
 
-            
+            console.log(listaDesejos);
+
         } else {
             const listaDesejosAtualizada = JSON.stringify(addProduto);
             
@@ -74,47 +73,47 @@ export default function Item({id, nome, preco, img}) {
 
     return <>
         <View>
-                { !expandir &&
-                    <TouchableOpacity style={estilos.container} onPress={inverteExpandir}>
-                        <Image
-                            source={img}
-                            style={estilos.shoesImg}
-                        />
-                        <View style={estilos.textBox}>
-                            <Texto style={estilos.shoesText}>
-                                {filtroNome(nome)}
-                            </Texto>
-                            <View opacity={0.4}>
-                                <Texto style={estilos.priceText}> {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(preco)} </Texto>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                }
-                { expandir &&
-                    <TouchableOpacity style={estilos.containerExp} onPress={inverteExpandir}>
-                        <Image
-                            source={img}
-                            style={estilos.prodImg}
-                        />
-                        <Texto style={estilos.roupaText}>
-                                {(nome)}
+            { !expandir &&
+                <TouchableOpacity style={estilos.container} onPress={inverteExpandir}>
+                    <Image
+                        source={img}
+                        style={estilos.shoesImg}
+                    />
+                    <View style={estilos.textBox}>
+                        <Texto style={estilos.shoesText}>
+                            {filtroNome(nome)}
                         </Texto>
-                        <View style={estilos.listaDesejos}>
-                            <View style={estilos.nomePreco}>
-                                <View style={estilos.posicao}>
-                                    <Texto style={estilos.textoNome}>Quantidade: </Texto>
-                                    <CampoInteiro style={estilos.textoNomePreco} valor={quantidade} acao={atualizaQtdTotal}/>
-                                </View>
-                                <View style={estilos.posicao}>
-                                    <Texto style={estilos.textoNome}>Total: </Texto>
-                                    <Texto style={estilos.textoNomePreco}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
-                                    .format(total)}</Texto>
-                                </View>
-                            </View>
-                            <Botao texto='Adicionar' acao={() => addListaDesejos(id, nome, preco, img, quantidade)} style={{backgroundColor: 'black', width: 220}}/>
+                        <View opacity={0.4}>
+                            <Texto style={estilos.priceText}> {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(preco)} </Texto>
                         </View>
-                    </TouchableOpacity>
-                }
+                    </View>
+                </TouchableOpacity>
+            }
+            { expandir &&
+                <TouchableOpacity style={estilos.containerExp} onPress={inverteExpandir}>
+                    <Image
+                        source={img}
+                        style={estilos.prodImg}
+                    />
+                    <Texto style={estilos.roupaText}>
+                            {(nome)}
+                    </Texto>
+                    <View style={estilos.listaDesejos}>
+                        <View style={estilos.nomePreco}>
+                            <View style={estilos.posicao}>
+                                <Texto style={estilos.textoNome}>Quantidade: </Texto>
+                                <CampoInteiro style={estilos.textoNomePreco} valor={quantidade} acao={atualizaQtdTotal}/>
+                            </View>
+                            <View style={estilos.posicao}>
+                                <Texto style={estilos.textoNome}>Total: </Texto>
+                                <Texto style={estilos.textoNomePreco}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
+                                .format(total)}</Texto>
+                            </View>
+                        </View>
+                        <Botao texto='Adicionar' acao={() => addListaDesejos(id, nome, preco, img, quantidade)} style={{backgroundColor: 'black', width: 220}}/>
+                    </View>
+                </TouchableOpacity>
+            }
         </View>
     </>
 }

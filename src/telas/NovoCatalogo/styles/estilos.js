@@ -61,7 +61,6 @@ export default StyleSheet.create({
     },
     posicao: {
         flexDirection: 'row',
-        alignItems: 'center',
     },
     textoNome: {
         fontSize: 18
