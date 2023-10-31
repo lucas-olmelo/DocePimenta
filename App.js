@@ -16,6 +16,7 @@ import Sobre from './src/telas/sobre';
 import NovoCatalogo from './src/telas/NovoCatalogo/novoCatalogo';
 import Contato from './src/telas/contato';
 import ListaDesejos from './src/telas/ListaDesejos/listaDesejos';
+import TesteCamera from './src/telas/Camera/camera';
 
 function MenuCesta() {
   return (
@@ -59,6 +60,10 @@ function TabsMenu() {
             iconName = focused
               ? 'heart'
               : 'heart-outline';
+          } else if (route.name === 'Camera') {
+            iconName = focused
+              ? 'heart'
+              : 'heart-outline';
           }
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -73,6 +78,7 @@ function TabsMenu() {
       <Tab.Screen name="Catálogo" component={NovoCatalogo}/>
       <Tab.Screen name="Contato" component={Contato} />
       <Tab.Screen name="Favoritos" component={ListaDesejos} options={{unmountOnBlur: true}}/>
+      <Tab.Screen name="Camera" component={TesteCamera} />
     </Tab.Navigator>
 
   );
