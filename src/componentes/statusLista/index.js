@@ -14,7 +14,7 @@ export default function StatusLista({total}) {
         await AsyncStorage.clear();
         // alert.alert('A lista de desejos foi limpa com sucesso!')
         console.log('A lista de desejos foi limpa com sucesso!');
-        navigation.navigate('Catálogo')
+        navigation.reset({index: 0, routes: [{name: 'Favoritos'}]})
     }
 
     return <View style={estilos.conteudo}>
