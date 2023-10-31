@@ -37,7 +37,7 @@ export default function Item({ id, nome, preco, img, qtde: qtdeInicial }) {
         
             if (listaDesejos.length == 1) {
                 await AsyncStorage.clear();
-                navigation.navigate('Catálogo');
+                navigation.reset({index: 0, routes:[{name: 'Favoritos'}]});
             } else {
                 // Encontre o índice do item na lista com base no ID
                 const index = listaDesejos.findIndex(item => item.id === idParaRemover);
@@ -50,7 +50,7 @@ export default function Item({ id, nome, preco, img, qtde: qtdeInicial }) {
                     await AsyncStorage.setItem('ListaDesejos', JSON.stringify(listaDesejos));
             
                     console.log(`Item com ID ${idParaRemover} removido da lista de desejos.`);
-                    navigation.navigate('Catálogo');
+                    navigation.reset({index: 0, routes:[{name: 'Favoritos'}]});
                 } else {
                     console.log(`Nenhum item com ID ${idParaRemover} encontrado na lista de desejos.`);
                 }
