@@ -60,6 +60,10 @@ export default function Item({ id, nome, preco, img, qtde: qtdeInicial }) {
         }
     }
 
+    function goToPage(id, nome, preco, img) {
+        
+    }
+
     return <>
         <View style={estilos.produtos}>
             <Image

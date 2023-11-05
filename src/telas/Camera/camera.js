@@ -1,7 +1,11 @@
 import React, {useState,  useEffect} from 'react';
 import { View, StyleSheet, Image, Button , TouchableOpacity, Text} from 'react-native';
+import estilos from './styles/estilos'
 import { Camera, CameraType } from 'expo-camera';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { Octicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function TesteCamera() {
 
@@ -40,15 +44,16 @@ export default function TesteCamera() {
   }
 
   return (
-    <View >
-      <Camera  type={type} ref={cameraRef}>
-        <View >
-          <TouchableOpacity  onPress={toggleCameraType}>
-            <Text >Alternar Camera</Text>
-          </TouchableOpacity>
-          <TouchableOpacity  onPress={tirarFoto}>
-            <Text >Tirar Foto</Text>
-          </TouchableOpacity>
+    <View style={estilos.container}>
+      <Camera style={estilos.camera} type={type} ref={cameraRef}>
+        <View style={estilos.test}>
+          <View style={estilos.buttonContainer}>
+            <TouchableOpacity style={estilos.button} onPress={toggleCameraType}>
+              <AntDesign name="retweet" size={40} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity style={estilos.botaoFoto} onPress={tirarFoto}>
+            </TouchableOpacity>
+          </View>
         </View>
       </Camera>
       {capturedImage && <Image source={{uri: capturedImage}} style={{flex: 1}}></Image>}

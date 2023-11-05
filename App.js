@@ -60,10 +60,10 @@ function TabsMenu() {
             iconName = focused
               ? 'heart'
               : 'heart-outline';
-          } else if (route.name === 'Camera') {
+          } else if (route.name === 'Perfil') {
             iconName = focused
-              ? 'heart'
-              : 'heart-outline';
+              ? 'person'
+              : 'person-outline';
           }
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -78,7 +78,7 @@ function TabsMenu() {
       <Tab.Screen name="Catálogo" component={NovoCatalogo}/>
       <Tab.Screen name="Contato" component={Contato} />
       <Tab.Screen name="Favoritos" component={ListaDesejos} options={{unmountOnBlur: true}}/>
-      <Tab.Screen name="Camera" component={TesteCamera} />
+      <Tab.Screen name="Perfil" component={TesteCamera} />
     </Tab.Navigator>
 
   );
