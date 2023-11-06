@@ -9,7 +9,6 @@ import modelo3 from '../../assets/roupas/look_evento.png';
 import modelo4 from '../../assets/roupas/blusinha_onca.png';
 import Texto from './Texto';
 
-
 const { width } = Dimensions.get('window');
 
 const DATA = [

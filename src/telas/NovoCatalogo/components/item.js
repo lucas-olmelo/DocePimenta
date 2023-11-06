@@ -4,10 +4,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import estilos from "../styles/estilos.js";
 import Texto from '../../../componentes/Texto';
-import Botao from '../../../componentes/Botao';
-import CampoInteiro from '../../../componentes/CampoInteiro';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Item({id, nome, preco, img}) {
+
+    const navigation = useNavigation();
 
     const [expandir, setExpandir] = useState(false);
     const [total, setTotal] = useState(preco);
@@ -73,23 +74,28 @@ export default function Item({id, nome, preco, img}) {
 
     return <>
         <View>
-            { !expandir &&
-                <TouchableOpacity style={estilos.container} onPress={inverteExpandir}>
-                    <Image
-                        source={img}
-                        style={estilos.shoesImg}
-                    />
-                    <View style={estilos.textBox}>
-                        <Texto style={estilos.shoesText}>
-                            {filtroNome(nome)}
-                        </Texto>
-                        <View opacity={0.4}>
-                            <Texto style={estilos.priceText}> {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(preco)} </Texto>
-                        </View>
+            <TouchableOpacity style={estilos.container} onPress={() => {
+                navigation.navigate('Details', {
+                    id: id, 
+                    nome: nome, 
+                    preco: preco, 
+                    img: img
+                })
+            }}>
+                <Image
+                    source={img}
+                    style={estilos.shoesImg}
+                />
+                <View style={estilos.textBox}>
+                    <Texto style={estilos.shoesText}>
+                        {filtroNome(nome)}
+                    </Texto>
+                    <View opacity={0.4}>
+                        <Texto style={estilos.priceText}> {Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(preco)} </Texto>
                     </View>
-                </TouchableOpacity>
-            }
-            { expandir &&
+                </View>
+            </TouchableOpacity>
+            {/* { expandir &&
                 <TouchableOpacity style={estilos.containerExp} onPress={inverteExpandir}>
                     <Image
                         source={img}
@@ -110,10 +116,13 @@ export default function Item({id, nome, preco, img}) {
                                 .format(total)}</Texto>
                             </View>
                         </View>
-                        <Botao texto='Adicionar' acao={() => addListaDesejos(id, nome, preco, img, quantidade)} style={{backgroundColor: 'black', width: 220}}/>
+                        <Botao 
+                            texto='Adicionar' 
+                            acao={} 
+                            style={{backgroundColor: 'black', width: 220}}/>
                     </View>
                 </TouchableOpacity>
-            }
+            } */}
         </View>
     </>
 }

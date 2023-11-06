@@ -2,6 +2,7 @@ import React from 'react';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR'
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StatusBar, SafeAreaView, View } from 'react-native';
@@ -16,6 +17,7 @@ import Sobre from './src/telas/sobre';
 import NovoCatalogo from './src/telas/NovoCatalogo/novoCatalogo';
 import Contato from './src/telas/contato';
 import ListaDesejos from './src/telas/ListaDesejos/listaDesejos';
+import ItemDetail from './src/telas/ItemDetail/itemDetail';
 import TesteCamera from './src/telas/Camera/camera';
 
 function MenuCesta() {
@@ -79,6 +81,8 @@ function TabsMenu() {
       <Tab.Screen name="Contato" component={Contato} />
       <Tab.Screen name="Favoritos" component={ListaDesejos} options={{unmountOnBlur: true}}/>
       <Tab.Screen name="Perfil" component={TesteCamera} />
+      <Tab.Screen name="Details" component={ItemDetail} />
+      
     </Tab.Navigator>
 
   );
@@ -100,6 +104,7 @@ export default function App() {
   return (
       <NavigationContainer>
         <TabsMenu />
+        
       </NavigationContainer>
   );
 }

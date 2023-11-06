@@ -4,6 +4,27 @@ const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
 export default StyleSheet.create({
+    profileContainer: {
+        padding: 20,
+        alignItems: 'center'
+    },
+    titleText: {
+        color: 'black',
+        fontSize: 25,
+        textAlign: 'center'
+    },
+    botaoCamera: {
+        backgroundColor: 'black',
+        alignItems: 'center',
+        width: 150,
+        padding: 10,
+        borderRadius: 15,
+        marginVertical: 15
+    },
+    botaoText: {
+        color: 'white',
+        fontSize: 24
+    },
     container: {
         flex: 1,
         backgroundColor: '#fff',
