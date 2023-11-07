@@ -1,11 +1,13 @@
-import React, {useState,  useEffect} from 'react';
-import { View, Image, Button , TouchableOpacity, Text} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, Image , TouchableOpacity, Text} from 'react-native';
 import estilos from './styles/estilos'
 import { Camera, CameraType } from 'expo-camera';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { AntDesign } from '@expo/vector-icons';
 import Texto from '../../componentes/Texto';
+
+import defaultImage from '../../../assets/def_prof.png'
 
 export default function TesteCamera() {
 
@@ -15,10 +17,9 @@ export default function TesteCamera() {
   const [capturedImage, setCapturedImage] = useState(null);
   const cameraRef = React.useRef(null);
 
-
-
   const [viewCamera, setViewCamera] = useState(false);
 
+  const [profilePic, setProfilePic] = useState(defaultImage);
 
   if (!permission) {
     return <View />;
@@ -26,9 +27,11 @@ export default function TesteCamera() {
 
   if (!permission.granted) {
     return (
-      <View >
-        <Text style={{ textAlign: 'center' }}>Por favor, autorize a utilização da sua camera.</Text>
-        <Button onPress={requestPermission} title="Autorizar o uso da camera" />
+      <View style={{justifyContent: 'center', alignItems: 'center', height: '100%'}}>
+        <Texto style={{ textAlign: 'center', fontSize: 24, marginVertical: 25 }}>Por favor, autorize a utilização da sua câmera.</Texto>
+        <TouchableOpacity style={{backgroundColor: 'black', width: 150, borderRadius: 15, padding: 10}} onPress={requestPermission}>
+          <Texto style={{color: 'white', textAlign: 'center'}}>Autorizar o uso da câmera</Texto>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -41,22 +44,28 @@ export default function TesteCamera() {
       console.log(uri);
       //Guarda a imagem no AsyncStorage
       await AsyncStorage.setItem('Foto', uri);
+
+      setProfilePic(capturedImage);
+      console.log(profilePic);
+
+      setViewCamera(false);
     }
   }
 
-  function toggleCameraType() {
+  function toggleCameraType() {''
     setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
   }
 
   const inverteExpandir = () => {
     setViewCamera(!viewCamera);
-};
+  };
 
   return <>
     <View style={estilos.profileContainer}>
       <Texto style={estilos.titleText}>Crie seu perfil, e aproveite as ofertas da Doce Pimenta</Texto>
+      <Image style={{width: 150, height: 150}} source={profilePic}></Image>
       <TouchableOpacity style={estilos.botaoCamera} onPress={inverteExpandir}>
-        <Text style={estilos.botaoText}>Câmera</Text>
+        <Text style={estilos.botaoText}>Trocar foto</Text>
       </TouchableOpacity>
     </View>
     {viewCamera &&
@@ -74,8 +83,8 @@ export default function TesteCamera() {
         </Camera>
       </View>
     }
-    {capturedImage && 
-      <Image source={{uri: capturedImage}} style={{flex: 1}}></Image>
-    }
+    {/* {capturedImage && 
+      <Image source={{uri: capturedImage}} style={{flex: .45}}></Image>
+    } */}
   </>
 } 

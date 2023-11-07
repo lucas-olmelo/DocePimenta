@@ -26,14 +26,14 @@ export default StyleSheet.create({
         fontSize: 24
     },
     container: {
-        flex: 1,
+        flex: 0.5,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     },
     camera: {
         flex: 1,
-        width: '100%',
+        width: '70%',
     },
     test: {
         position: 'absolute',

@@ -2,7 +2,6 @@ import React from 'react';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR'
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StatusBar, SafeAreaView, View } from 'react-native';
@@ -76,12 +75,13 @@ function TabsMenu() {
     }
     >
       <Tab.Screen name="Home" component={MenuCesta}  />
-      <Tab.Screen name="Sobre" component={Sobre} />
-      <Tab.Screen name="Catálogo" component={NovoCatalogo}/>
-      <Tab.Screen name="Contato" component={Contato} />
       <Tab.Screen name="Favoritos" component={ListaDesejos} options={{unmountOnBlur: true}}/>
+      <Tab.Screen name="Catálogo" component={NovoCatalogo}/>
+      <Tab.Screen name="Sobre" component={Sobre} />
+      <Tab.Screen name="Contato" component={Contato} />
       <Tab.Screen name="Perfil" component={TesteCamera} />
-      <Tab.Screen name="Details" component={ItemDetail} />
+
+      <Tab.Screen name="Details" component={ItemDetail} options={{tabBarItemStyle: {display: 'none'}}}/>
       
     </Tab.Navigator>
 
@@ -102,9 +102,8 @@ export default function App() {
   }
 
   return (
-      <NavigationContainer>
-        <TabsMenu />
-        
-      </NavigationContainer>
+    <NavigationContainer>
+      <TabsMenu />
+    </NavigationContainer>
   );
 }

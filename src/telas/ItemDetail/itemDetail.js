@@ -4,6 +4,7 @@ import estilos from "./styles/estilos.js";
 import Texto from '../../componentes/Texto';
 import Botao from '../../componentes/Botao';
 import CampoInteiro from '../../componentes/CampoInteiro';
+import CepSearch from "./cepSearch.js";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Item({route}) {
@@ -79,6 +80,7 @@ export default function Item({route}) {
                 </View>
                 <Botao texto='Adicionar' acao={() => addListaDesejos(id, nome, preco, img, quantidade)} style={{backgroundColor: 'black', width: 220}}/>
             </View>
+            <CepSearch></CepSearch>
         </View>
     </>
 }
