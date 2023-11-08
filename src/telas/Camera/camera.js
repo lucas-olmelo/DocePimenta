@@ -63,7 +63,7 @@ export default function TesteCamera() {
   return <>
     <View style={estilos.profileContainer}>
       <Texto style={estilos.titleText}>Crie seu perfil, e aproveite as ofertas da Doce Pimenta</Texto>
-      <Image style={{width: 150, height: 150}} source={profilePic}></Image>
+      <Image style={estilos.imagePic} source={profilePic}></Image>
       <TouchableOpacity style={estilos.botaoCamera} onPress={inverteExpandir}>
         <Text style={estilos.botaoText}>Trocar foto</Text>
       </TouchableOpacity>
@@ -83,6 +83,7 @@ export default function TesteCamera() {
         </Camera>
       </View>
     }
+    {/* Nome, 📍Endereço, Email, utilizando AsyncStorage */}
     {/* {capturedImage && 
       <Image source={{uri: capturedImage}} style={{flex: .45}}></Image>
     } */}

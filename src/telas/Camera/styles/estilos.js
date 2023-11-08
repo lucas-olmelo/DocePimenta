@@ -11,7 +11,13 @@ export default StyleSheet.create({
     titleText: {
         color: 'black',
         fontSize: 25,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 10
+    },
+    imagePic: {
+        width: 150, 
+        height: 150,
+        marginVertical: 15
     },
     botaoCamera: {
         backgroundColor: 'black',
