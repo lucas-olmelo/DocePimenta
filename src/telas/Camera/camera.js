@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { View, Image , TouchableOpacity, Text} from 'react-native';
+import React, {useState} from 'react';
+import { View, Image , TouchableOpacity, Text, TextInput, Alert } from 'react-native';
 import estilos from './styles/estilos'
 import { Camera, CameraType } from 'expo-camera';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -16,10 +16,13 @@ export default function TesteCamera() {
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const [capturedImage, setCapturedImage] = useState(null);
   const cameraRef = React.useRef(null);
-
   const [viewCamera, setViewCamera] = useState(false);
 
-  const [profilePic, setProfilePic] = useState(defaultImage);
+  const [text, onChangeText] = useState('');
+  const [email, onChangeEmail] = useState('');
+  const [senha, onChangeSenha] = useState('');
+
+  const [registro, setRegistro] = useState(false);
 
   if (!permission) {
     return <View />;
@@ -45,9 +48,6 @@ export default function TesteCamera() {
       //Guarda a imagem no AsyncStorage
       await AsyncStorage.setItem('Foto', uri);
 
-      setProfilePic(capturedImage);
-      console.log(profilePic);
-
       setViewCamera(false);
     }
   }
@@ -60,17 +60,43 @@ export default function TesteCamera() {
     setViewCamera(!viewCamera);
   };
 
+  async function addUser(id, nome, email, senha, img) {
+        
+    const addUser = [{
+        id: id,
+        nome: nome,
+        email: email,
+        img: img,
+        senha: senha
+    }]
+
+    const userSalvo = await AsyncStorage.getItem('user');
+    if (userSalvo !== null) {
+        const user = JSON.parse(userSalvo);
+
+        user.push({id: id, nome: nome, email: email, img: img, senha: senha});
+        const userAtualizado = JSON.stringify(user);
+        await AsyncStorage.setItem('user', userAtualizado);
+        Alert.alert("Usuário cadastrado com sucesso!");
+
+        console.log(user);
+
+    } else {
+        const userAtualizado = JSON.stringify(addUser);
+        
+        await AsyncStorage.setItem('user', userAtualizado);
+        Alert.alert("Usuário cadastrado com sucesso!");
+        console.log('Inseriu usuário');
+    }
+}
+
   return <>
-    <View style={estilos.profileContainer}>
-      <Texto style={estilos.titleText}>Crie seu perfil, e aproveite as ofertas da Doce Pimenta</Texto>
-      <Image style={estilos.imagePic} source={profilePic}></Image>
-      <TouchableOpacity style={estilos.botaoCamera} onPress={inverteExpandir}>
-        <Text style={estilos.botaoText}>Trocar foto</Text>
-      </TouchableOpacity>
-    </View>
     {viewCamera &&
       <View style={estilos.container}>
         <Camera style={estilos.camera} type={type} ref={cameraRef}>
+          <TouchableOpacity style={estilos.backButton} onPress={inverteExpandir}>
+            <AntDesign name="back" size={40} color="white" />
+          </TouchableOpacity>
           <View style={estilos.test}>
             <View style={estilos.buttonContainer}>
               <TouchableOpacity style={estilos.button} onPress={toggleCameraType}>
@@ -83,9 +109,64 @@ export default function TesteCamera() {
         </Camera>
       </View>
     }
+    {!registro && !viewCamera && <View style={estilos.profileContainer}>
+      <Texto style={estilos.titleText}>Crie seu perfil, e aproveite as ofertas da Doce Pimenta</Texto>
+
+      <View style={estilos.imageContainer}>
+        <Image style={estilos.imagePic} source={{uri: capturedImage}}></Image>
+      </View>
+      <TouchableOpacity style={estilos.botaoCamera} onPress={inverteExpandir}>
+        <Text style={estilos.botaoText}>Tirar foto</Text>
+      </TouchableOpacity>
+
+      <View style={estilos.form}>
+        <View style={estilos.inputWrap}>
+          <Texto style={estilos.inputLabel}>Nome:</Texto>
+          <TextInput
+            style={estilos.input}
+            onChangeText={onChangeText}
+            value={text}
+            placeholder="Insira seu nome"
+          />
+        </View>
+        <View style={estilos.inputWrap}>
+          <Texto style={estilos.inputLabel}>Email:</Texto>
+          <TextInput
+            style={estilos.input}
+            onChangeText={onChangeEmail}
+            value={email}
+            placeholder="Insira o seu email"
+            keyboardType="email-address"
+            autoCapitalize='none'
+          />
+        </View>
+        <View style={estilos.inputWrap}>
+          <Texto style={estilos.inputLabel}>Senha:</Texto>
+          <TextInput
+            style={estilos.input}
+            onChangeText={onChangeSenha}
+            value={senha}
+            placeholder="Insira a sua senha"
+            secureTextEntry= {true}
+            autoCapitalize='none'
+          />
+        </View>
+        <TouchableOpacity style={estilos.botaoCamera} onPress={()=>{addUser(1, text, email, senha, capturedImage), setRegistro(true)}}>
+          <Text style={estilos.botaoText}>Criar Perfil</Text>
+        </TouchableOpacity>
+      </View>
+    </View>}
+
+    { registro &&
+      <View style={estilos.loggedInfo}>
+        <Texto style={estilos.titleText}>Seu perfil na Doce Pimenta:</Texto>
+        <Image style={estilos.imagePic} source={{uri: capturedImage}}></Image>
+        <Texto style={estilos.infoLabel}>{text}</Texto>
+        <Texto style={estilos.infoLabel}>{email}</Texto>
+      </View>
+    }
+
     {/* Nome, 📍Endereço, Email, utilizando AsyncStorage */}
-    {/* {capturedImage && 
-      <Image source={{uri: capturedImage}} style={{flex: .45}}></Image>
-    } */}
+    {/* {capturedImage && <Image source={{uri: capturedImage}} style={{flex: .45}}></Image>} */}
   </>
 } 

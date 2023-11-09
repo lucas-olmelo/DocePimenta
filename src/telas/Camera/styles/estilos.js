@@ -12,12 +12,51 @@ export default StyleSheet.create({
         color: 'black',
         fontSize: 25,
         textAlign: 'center',
-        marginBottom: 10
+        marginVertical: 10
+    },
+    form: {
+        alignItems: 'center'
+    },
+    inputWrap: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
+    inputLabel: {
+        width: 70,
+        fontSize: 20
+    },
+    input: {
+        height: 40,
+        width: 250,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
+    imageContainer: {
+        borderWidth: 1, 
+        width: 200, 
+        height: 200, 
+        borderRadius: 200, 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        marginVertical: 25
     },
     imagePic: {
-        width: 150, 
-        height: 150,
-        marginVertical: 15
+        width: 200, 
+        height: 200,
+        marginVertical: 15,
+        borderRadius: 200,
+        borderWidth: 1
+    },
+    loggedInfo: {
+        alignItems: 'center'
+    },
+    infoLabel: {
+        fontSize: 20
+    },
+    backButton: {
+        padding: 15
     },
     botaoCamera: {
         backgroundColor: 'black',
@@ -32,14 +71,14 @@ export default StyleSheet.create({
         fontSize: 24
     },
     container: {
-        flex: 0.5,
+        flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     },
     camera: {
         flex: 1,
-        width: '70%',
+        width: '100%',
     },
     test: {
         position: 'absolute',
