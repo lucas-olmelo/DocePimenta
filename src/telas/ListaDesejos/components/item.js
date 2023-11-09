@@ -74,11 +74,11 @@ export default function Item({ id, nome, preco, img, qtde: qtdeInicial }) {
                     <View opacity={0.4}>
                         <Texto style={estilos.priceText}> {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total)} </Texto>
                         <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                            <Texto>Quantidade: </Texto>
+                            {/* <Texto>Quantidade: </Texto> */}
                             <CampoInteiro valor={quantidade} acao={atualizaQtdTotal} />
                         </View>
                     </View>
-                    <Botao texto='Remover' acao={() => removerItemPeloId(id)} style={{backgroundColor: 'black'}}></Botao>
+                    <Botao texto='Remover' acao={() => removerItemPeloId(id)} style={{backgroundColor: '#211F20'}}></Botao>
                 </View>
             </View>
         </View>

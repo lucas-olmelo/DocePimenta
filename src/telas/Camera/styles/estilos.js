@@ -35,16 +35,16 @@ export default StyleSheet.create({
     },
     imageContainer: {
         borderWidth: 1, 
-        width: 200, 
-        height: 200, 
+        width: 175, 
+        height: 175, 
         borderRadius: 200, 
         alignItems: 'center', 
         justifyContent: 'center',
         marginVertical: 25
     },
     imagePic: {
-        width: 200, 
-        height: 200,
+        width: 175, 
+        height: 175,
         marginVertical: 15,
         borderRadius: 200,
         borderWidth: 1
@@ -55,11 +55,8 @@ export default StyleSheet.create({
     infoLabel: {
         fontSize: 20
     },
-    backButton: {
-        padding: 15
-    },
     botaoCamera: {
-        backgroundColor: 'black',
+        backgroundColor: '#211F20',
         alignItems: 'center',
         width: 150,
         padding: 10,

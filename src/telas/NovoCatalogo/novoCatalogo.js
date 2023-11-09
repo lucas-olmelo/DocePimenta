@@ -24,7 +24,7 @@ export default function NovoCatalogo () {
             </TouchableOpacity>
         </View>
         <View style={estilos.line} />
-        <View>
+        <View style={{marginBottom: 100}}>
             <Texto style={estilos.text}>LANÇAMENTOS</Texto>
             <FlatList
                 data={roupas}

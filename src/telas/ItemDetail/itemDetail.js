@@ -3,13 +3,16 @@ import { View, Image } from "react-native";
 import estilos from "./styles/estilos.js";
 import Texto from '../../componentes/Texto';
 import Botao from '../../componentes/Botao';
-import CampoInteiro from '../../componentes/CampoInteiro';
-import CepSearch from "./cepSearch.js";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import CampoInteiro from '../../componentes/CampoInteiro.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import BackButton from '../../componentes/BackButton.js';
 
 export default function Item({route}) {
 
     const { id, nome, preco, img } = route.params;
+
+    const navigation = useNavigation();
 
     const [total, setTotal] = useState(preco);
     const [quantidade, setQuantidade] = useState(1);
@@ -61,12 +64,19 @@ export default function Item({route}) {
 
     return <>
         <View style={estilos.container}>
-            <Image
-                source={img}
-                style={estilos.prodImg}
-            />
-            <Texto style={estilos.roupaText}>{nome}</Texto>
+            <View style={estilos.startContainer}>
+                <BackButton acao={() => {navigation.goBack()}} color={'black'}></BackButton>
+                <Image
+                    source={img}
+                    style={estilos.prodImg}
+                />
+            </View>
             <View style={estilos.listaDesejos}>
+                <View style={estilos.roupaPreco}>
+                    <Texto style={estilos.roupaText}>{nome}</Texto>
+                    <Texto style={estilos.textoNomePreco}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
+                        .format(preco)}</Texto>
+                </View>
                 <View style={estilos.nomePreco}>
                     <View style={estilos.posicao}>
                         <Texto style={estilos.textoNome}>Quantidade: </Texto>
@@ -74,13 +84,13 @@ export default function Item({route}) {
                     </View>
                     <View style={estilos.posicao}>
                         <Texto style={estilos.textoNome}>Total: </Texto>
-                        <Texto style={estilos.textoNomePreco}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
+                        <Texto style={estilos.precoTotal}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
                         .format(total)}</Texto>
                     </View>
+                    <Botao texto='Adicionar' acao={() => addListaDesejos(id, nome, preco, img, quantidade)} style={{backgroundColor: 'black', width: 220, marginTop: 10}}/>
                 </View>
-                <Botao texto='Adicionar' acao={() => addListaDesejos(id, nome, preco, img, quantidade)} style={{backgroundColor: 'black', width: 220}}/>
             </View>
-            <CepSearch></CepSearch>
+            {/* <CepSearch></CepSearch> */}
         </View>
     </>
 }

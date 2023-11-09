@@ -6,8 +6,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { AntDesign } from '@expo/vector-icons';
 import Texto from '../../componentes/Texto';
+import Header from "../../componentes/Header.js";
 
 import defaultImage from '../../../assets/def_prof.png'
+import BackButton from '../../componentes/BackButton';
 
 export default function TesteCamera() {
 
@@ -91,12 +93,11 @@ export default function TesteCamera() {
 }
 
   return <>
+    { !viewCamera && <Header></Header>}
     {viewCamera &&
       <View style={estilos.container}>
         <Camera style={estilos.camera} type={type} ref={cameraRef}>
-          <TouchableOpacity style={estilos.backButton} onPress={inverteExpandir}>
-            <AntDesign name="back" size={40} color="white" />
-          </TouchableOpacity>
+          <BackButton acao={inverteExpandir} color={'white'}></BackButton>
           <View style={estilos.test}>
             <View style={estilos.buttonContainer}>
               <TouchableOpacity style={estilos.button} onPress={toggleCameraType}>

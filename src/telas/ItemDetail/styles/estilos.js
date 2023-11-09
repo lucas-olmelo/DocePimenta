@@ -6,40 +6,47 @@ export default StyleSheet.create({
     container:{
         flexDirection: 'column',
         padding: '2%',
+    },
+    startContainer: {
         alignItems: 'center',
     },
     prodImg:{
         marginTop: 15,
         width: width/1.5,
-        height: width/1.5
+        height: width/1.5,
+        borderRadius: 10,
     },
-    shoesText:{
-        fontSize: 20,
-        color: 'red'
-    },
-    priceText: {
-        fontSize: 20,
-        color: 'black'
-    },
+    /*Roupa e preço*/
     listaDesejos: {
-        flexDirection: "column",
-        marginTop: 15,
+        flexDirection: "column", 
+        marginTop: 25,
+    },
+    roupaPreco: {
+        marginVertical: 15
     },
     roupaText: {
-        fontSize: 24,
-        marginTop: 12,
+        fontSize: 28,
+        marginBottom: 6,
         color: 'red'
     },
-    posicao: {
-        flexDirection: 'row',
-        alignItems: 'center'
+    textoNomePreco: {
+        fontSize: 36,
+        color: 'red',
+        fontWeight: 'bold'
+    },
+    /*Quantidade e total*/
+    nomePreco: {
+        alignItems: 'center',
+        marginVertical: 15
     },
     textoNome: {
         fontSize: 18
     },  
-    textoNomePreco: {
-        fontSize: 26,
-        color: 'red',
-        fontWeight: 'bold'
+    posicao: {
+        flexDirection: 'row',
+        alignItems: 'center'
     },
+    precoTotal: {
+        fontSize: 18
+    }
 })

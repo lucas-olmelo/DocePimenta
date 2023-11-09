@@ -1,8 +1,33 @@
 import React from "react-native";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const width = Dimensions.get('screen').width;
+const height = Dimensions.get('screen').height;
+
 
 export default StyleSheet.create({
-    
+    container: {
+        height: height - 55,
+    },
+    topo: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: '#211F20',
+        padding: 15
+    },
+    title: {
+        color: 'white',
+        fontSize: 25,
+        fontWeight: 'bold'
+    },
+    status: {
+        position: 'absolute',
+        bottom: 55,
+        width: width
+    },
+
+
     produtos: {
         flexDirection: 'row',
         padding: '2%',

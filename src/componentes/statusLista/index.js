@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from "react-native";
 import Texto from '../Texto';
 import Botao from '../Botao';
+import CepSearch from '../cepSearch';
 import estilos from "./estilos";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
@@ -18,14 +19,17 @@ export default function StatusLista({total}) {
     }
 
     return <View style={estilos.conteudo}>
-        <View style={estilos.total}>
-            <Texto style={estilos.descricao}>Valor total da lista:</Texto>
-            <Texto style={estilos.valor}>{
-                Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(total)
-            }</Texto>
-        </View>
-        <View style={estilos.botao}>
-            <Botao texto='Limpar lista' acao={() => limpaLista()} style={{backgroundColor: 'red'}}></Botao>
+        <CepSearch></CepSearch>
+        <View style={estilos.containerTotal}>
+            <View style={estilos.total}>
+                <Texto style={estilos.descricao}>Valor total da lista:</Texto>
+                <Texto style={estilos.valor}>{
+                    Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(total)
+                }</Texto>
+            </View>
+            <View style={estilos.botao}>
+                <Botao texto='Comprar' style={{backgroundColor: 'red', width: 150}}></Botao>
+            </View>
         </View>
     </View>
 }

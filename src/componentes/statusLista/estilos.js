@@ -3,9 +3,15 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     conteudo: {
         backgroundColor: '#211F20',
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'space-between',
         padding: 24,
+    },
+    containerTotal: {
+        flexDirection: 'row', 
+        marginTop: 15, 
+        alignItems: 'center', 
+        justifyContent: 'space-between'
     },
     total: {
         alignItems: 'center',
@@ -21,9 +27,5 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         marginVertical: 6,
         color: 'red',
-    },
-    botao: {
-        flexGrow: 1,
-        alignItems: 'center',
     },
 })
