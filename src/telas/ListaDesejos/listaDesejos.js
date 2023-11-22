@@ -53,7 +53,7 @@ export default function ListaDesejos() {
             keyExtractor={({id}) => (String(id))}
         />
         <SafeAreaView style={estilos.status}>
-            <StatusLista total={total} />
+            <StatusLista total={total} data={data}/>
         </SafeAreaView>
     </View>
 }

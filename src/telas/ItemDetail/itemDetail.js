@@ -51,6 +51,7 @@ export default function Item({route}) {
             listaDesejos.push({id: id, nome: nome, preco: preco, img: img, qtde: quantidade});
             const listaDesejosAtualizada = JSON.stringify(listaDesejos);
             await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+            navigation.navigate('Favoritos');
 
             console.log(listaDesejos);
 
@@ -58,6 +59,7 @@ export default function Item({route}) {
             const listaDesejosAtualizada = JSON.stringify(addProduto);
             
             await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+            navigation.navigate('Favoritos');
             console.log('Inseriu item na lista');
         }
     }
