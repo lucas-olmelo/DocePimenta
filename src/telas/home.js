@@ -5,8 +5,8 @@ import Header from '../componentes/Header.js';
 import { Video, ResizeMode } from "expo-av";
 
 import arqVideo from '../../assets/video.mp4'
-import cupom from "../../assets/cupom.jpg";
-import promo from "../../assets/promo.jpg";
+import cupom from "../../assets/cupom.png";
+import promo from "../../assets/promo.png";
 
 
 export default function Home () {

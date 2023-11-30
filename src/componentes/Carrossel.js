@@ -3,8 +3,8 @@ import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import Carousel, { PaginationLight } from 'react-native-x-carousel';
 
 import modelo from '../../assets/roupas/conjunto_flores.png';
-import modelo1 from '../../assets/roupas/divas_inverno.jpg';
-import modelo2 from '../../assets/roupas/outono_inverno.jpg';
+import modelo1 from '../../assets/roupas/divas_inverno.png';
+import modelo2 from '../../assets/roupas/outono_inverno.png';
 import modelo3 from '../../assets/roupas/look_evento.png';
 import modelo4 from '../../assets/roupas/blusinha_onca.png';
 import Texto from './Texto';
