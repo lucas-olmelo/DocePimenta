@@ -58,7 +58,7 @@ export default function StatusLista({total, data}) {
                 msg += '\nEndereço: ' +address.endereco;
                 msg += '\nNúmero: ' +address.num;
 
-                Linking.openURL('whatsapp://send?text='+msg+'&phone=5511983367853');
+                Linking.openURL('whatsapp://send?text='+msg+'&phone=5587996109346');
             } else {
                 Alert.alert('Erro', 'Insira o seu endereço!');
             }
