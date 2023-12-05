@@ -5,11 +5,8 @@ import Botao from '../Botao';
 import CepSearch from '../cepSearch';
 import estilos from "./estilos";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
 
 export default function StatusLista({total, data}) {
-
-    const navigation = useNavigation();
 
     const [user, setUser] = useState([]);
     const [address, setAddress] = useState([]);
@@ -26,7 +23,6 @@ export default function StatusLista({total, data}) {
     const getAddress = async () => {
         const endereco = await AsyncStorage.getItem('address');
         if (endereco !== null) {
-
             setAddress(JSON.parse(endereco));
             console.log(address);
         }
@@ -41,7 +37,7 @@ export default function StatusLista({total, data}) {
         console.log(user);
         console.log(address);
 
-        if (user[0].id != null ) {
+        if (user.length > 0) {
 
             if (address != null) {
                 let itens = []
@@ -62,7 +58,7 @@ export default function StatusLista({total, data}) {
                 msg += '\nEndereço: ' +address.endereco;
                 msg += '\nNúmero: ' +address.num;
 
-                Linking.openURL('whatsapp://send?text='+msg+'&phone=5511959720351');
+                Linking.openURL('whatsapp://send?text='+msg+'&phone=5511983367853');
             } else {
                 Alert.alert('Erro', 'Insira o seu endereço!');
             }

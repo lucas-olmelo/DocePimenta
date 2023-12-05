@@ -95,34 +95,6 @@ export default function Item({id, nome, preco, img}) {
                     </View>
                 </View>
             </TouchableOpacity>
-            {/* { expandir &&
-                <TouchableOpacity style={estilos.containerExp} onPress={inverteExpandir}>
-                    <Image
-                        source={img}
-                        style={estilos.prodImg}
-                    />
-                    <Texto style={estilos.roupaText}>
-                            {(nome)}
-                    </Texto>
-                    <View style={estilos.listaDesejos}>
-                        <View style={estilos.nomePreco}>
-                            <View style={estilos.posicao}>
-                                <Texto style={estilos.textoNome}>Quantidade: </Texto>
-                                <CampoInteiro style={estilos.textoNomePreco} valor={quantidade} acao={atualizaQtdTotal}/>
-                            </View>
-                            <View style={estilos.posicao}>
-                                <Texto style={estilos.textoNome}>Total: </Texto>
-                                <Texto style={estilos.textoNomePreco}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
-                                .format(total)}</Texto>
-                            </View>
-                        </View>
-                        <Botao 
-                            texto='Adicionar' 
-                            acao={} 
-                            style={{backgroundColor: 'black', width: 220}}/>
-                    </View>
-                </TouchableOpacity>
-            } */}
         </View>
     </>
 }
