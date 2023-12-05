@@ -1,56 +1,25 @@
-import React, {useState, useEffect} from "react";
-import { Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
-import { Audio } from 'expo-av';
+import React from "react";
+import { Image, ScrollView, StyleSheet, Dimensions, Text } from "react-native";
 import Texto from "../componentes/Texto";
 import Header from "../componentes/Header";
-import loja from "../../assets/loja.jpg"
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import loja from "../../assets/loja.png"
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const width = Dimensions.get('screen').width;
 
 export default function Sacolao(){
 
-    const [sound, setSound] = useState();
-    const [audioStatus, setAudioStatus] = useState(false)
+    const whatsappURL = "https://api.whatsapp.com/send?phone=5511983367853";
 
-    async function playSound() {
-        setAudioStatus(true)
-        console.log('Loading Sound');
-        const { sound } = await Audio.Sound.createAsync(require('../../assets/audio.mp3')
+    const abrirWhatsApp = () => {
+        Linking.openURL(whatsappURL);
+    };
+
+    const abrirInsta = () => {
+        Linking.openURL(
+        "https://instagram.com/doce.__pimenta?igshid=MzRlODBiNWFlZA=="
         );
-        setSound(sound);
-
-        console.log('Playing Sound');
-        await sound.playAsync();
-    }
-
-    useEffect(() => {
-        return sound
-        ? () => {
-            console.log('Unloading Sound');
-            sound.unloadAsync();
-            }
-        : undefined;
-    }, [sound]);
-    // const [audioStatus, setAudioStatus] = useState(false)
-    // const [sound, setSound] = useState(new Audio.Sound());
-
-    // useEffect(() => {
-    //     (async () => {
-    //         console.log('status', audioStatus)
-    //         if (audioStatus) {
-    //             await sound.loadAsync(require('../../assets/audio.mp3'))
-    //             try { 
-    //                 await sound.playAsync() 
-    //             } catch (e) { 
-    //                 console.log(e) 
-    //             }
-    //         } else {
-    //             await sound.stopAsync()
-    //             await sound.unloadAsync()
-    //         }
-    //     })()
-    // },[audioStatus])
+    };
 
     return <ScrollView>
         <Header />
@@ -64,18 +33,21 @@ export default function Sacolao(){
            Somos uma loja de roupa localizada em Pernambuco, 
            buscando sempre visar o bem estar de nossos clientes.
         </Texto>
-        <TouchableOpacity onPress={()=>playSound()}  style={{alignSelf: 'center', flexDirection: 'row', alignItems: 'center', backgroundColor: "#211F20", padding: 10, borderRadius: 5}}>
-            <Ionicons
-                name="play"
-                size={32}
-                color={audioStatus ? 'white' : 'red'} 
-            />
-            <Texto style={{fontSize: 24, color: 'white'}}>Tocar áudio</Texto>
-        </TouchableOpacity>
-
         <Image source={loja} style={estilos.loja}></Image>
         <Texto style={estilos.texto}>
-        📍Endereço: Rua Pedro Lúcio Albuquerque, 134, Lajedo, Pernambuco, CEP 55385-000 
+        📍Endereço: Av. Agamenon Magalhães, nº73, centro, Lajedo, Pernambuco, CEP 55385-000 
+        </Texto>
+        <Texto style={estilos.texto}>
+        <Icon name="whatsapp" size={30} color="#25D366" />{" "}
+        <Texto onPress={abrirWhatsApp} style={estilos.link}>
+          (11) 98336-7853
+        </Texto>
+        </Texto>
+        <Texto style={estilos.texto}>
+            <Icon name="instagram" size={30} color="#E1306C" />{" "}
+            <Text onPress={abrirInsta} style={estilos.link_insta}>
+            @doce.pimentaof
+            </Text>
         </Texto>
     </ScrollView>;
 }
@@ -92,7 +64,8 @@ const estilos = StyleSheet.create({
         color: 'black', 
         fontSize: 20,
         marginBottom: 20,
-        textAlign: "center"
+        textAlign: "center",
+        marginHorizontal: 10
     },
     slogan:{
         color: 'black', 

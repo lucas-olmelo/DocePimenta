@@ -114,7 +114,8 @@ export default function TesteCamera() {
       <Texto style={estilos.titleText}>Crie seu perfil, e aproveite as ofertas da Doce Pimenta</Texto>
 
       <View style={estilos.imageContainer}>
-        <Image style={estilos.imagePic} source={{uri: capturedImage}}></Image>
+        {/* <Image style={estilos.imagePic} source={{uri: capturedImage}}></Image> */}
+        { capturedImage !== '' ? <Image source={{uri: capturedImage}} /> :null}
       </View>
       <TouchableOpacity style={estilos.botaoCamera} onPress={inverteExpandir}>
         <Text style={estilos.botaoText}>Tirar foto</Text>

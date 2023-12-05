@@ -41,7 +41,7 @@ export default function StatusLista({total, data}) {
         console.log(user);
         console.log(address);
 
-        if (user[0].id != null ) {
+        if (user[0] != null ) {
 
             if (address != null) {
                 let itens = []
@@ -62,7 +62,7 @@ export default function StatusLista({total, data}) {
                 msg += '\nEndereço: ' +address.endereco;
                 msg += '\nNúmero: ' +address.num;
 
-                Linking.openURL('whatsapp://send?text='+msg+'&phone=5511959720351');
+                Linking.openURL('whatsapp://send?text='+msg+'&phone=5511983367853');
             } else {
                 Alert.alert('Erro', 'Insira o seu endereço!');
             }
