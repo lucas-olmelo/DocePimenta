@@ -1,4 +1,5 @@
 import React from 'react';
+import { LogBox } from 'react-native';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR'
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,6 +19,8 @@ import Contato from './src/telas/contato';
 import ListaDesejos from './src/telas/ListaDesejos/listaDesejos';
 import ItemDetail from './src/telas/ItemDetail/itemDetail';
 import TesteCamera from './src/telas/Camera/camera';
+
+LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
 
 function MenuCesta() {
   return (
@@ -53,10 +56,6 @@ function TabsMenu() {
             iconName = focused
               ? 'chatbubble-ellipses'
               : 'chatbubble-ellipses-outline';
-          } else if (route.name === 'Contato') {
-            iconName = focused
-              ? 'chatbubble'
-              : 'chatbubble-outline';
           } else if (route.name === 'Favoritos') {
             iconName = focused
               ? 'heart'
@@ -78,9 +77,7 @@ function TabsMenu() {
       <Tab.Screen name="Favoritos" component={ListaDesejos} options={{unmountOnBlur: true}}/>
       <Tab.Screen name="Catálogo" component={NovoCatalogo}/>
       <Tab.Screen name="Sobre" component={Sobre} />
-      <Tab.Screen name="Contato" component={Contato} />
       <Tab.Screen name="Perfil" component={TesteCamera} />
-
       <Tab.Screen name="Details" component={ItemDetail} options={{tabBarItemStyle: {display: 'none'}}}/>
       
     </Tab.Navigator>
