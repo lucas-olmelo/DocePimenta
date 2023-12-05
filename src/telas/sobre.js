@@ -35,7 +35,7 @@ export default function Sacolao(){
         </Texto>
         <Image source={loja} style={estilos.loja}></Image>
         <Texto style={estilos.texto}>
-        📍Endereço: Av. Agamenon Magalhães, nº73, centro, Lajedo, Pernambuco, CEP 55385-000 
+        📍Av. Agamenon Magalhães, nº73, centro, Lajedo, Pernambuco, CEP 55385-000 
         </Texto>
         <Texto style={estilos.texto}>
         <Icon name="whatsapp" size={30} color="#25D366" />{" "}

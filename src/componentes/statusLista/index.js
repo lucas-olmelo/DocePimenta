@@ -5,11 +5,8 @@ import Botao from '../Botao';
 import CepSearch from '../cepSearch';
 import estilos from "./estilos";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
 
 export default function StatusLista({total, data}) {
-
-    const navigation = useNavigation();
 
     const [user, setUser] = useState([]);
     const [address, setAddress] = useState([]);
@@ -62,7 +59,7 @@ export default function StatusLista({total, data}) {
                 msg += '\nEndereço: ' +address.endereco;
                 msg += '\nNúmero: ' +address.num;
 
-                Linking.openURL('whatsapp://send?text='+msg+'&phone=5511983367853');
+                Linking.openURL('whatsapp://send?text='+msg+'&phone=5587996109346');
             } else {
                 Alert.alert('Erro', 'Insira o seu endereço!');
             }
