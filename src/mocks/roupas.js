@@ -28,7 +28,7 @@ const roupas = [
     },
     {
         id: 3,
-        nome: 'Cosplay Velma',
+        nome: 'Conjunto Outono',
         preco: 190,
         img: img3
     },
@@ -82,7 +82,7 @@ const roupas = [
     },
     {
         id: 12,
-        nome: 'Conjunto plus-size',
+        nome: 'Conjunto verde',
         preco: 340,
         img: img12
     },

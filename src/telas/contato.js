@@ -18,7 +18,7 @@ import * as MailComposer from "expo-mail-composer";
 const width = Dimensions.get("screen").width;
 
 export default function Contato() {
-  const whatsappURL = "https://api.whatsapp.com/send?phone=5511983367853";
+  const whatsappURL = "https://api.whatsapp.com/send?phone=5587996109346";
 
   const abrirWhatsApp = () => {
     Linking.openURL(whatsappURL);
@@ -26,7 +26,7 @@ export default function Contato() {
 
   const abrirInsta = () => {
     Linking.openURL(
-      "https://instagram.com/doce.__pimenta?igshid=MzRlODBiNWFlZA=="
+      "https://instagram.com/doce.pimentaof?igshid=MzRlODBiNWFlZA=="
     );
   };
 
@@ -87,7 +87,7 @@ export default function Contato() {
       <Texto style={estilos.texto}>
         <Icon name="whatsapp" size={30} color="#25D366" />{" "}
         <Text onPress={abrirWhatsApp} style={estilos.link}>
-          (11) 98336-7853
+        (87) 99610-9346
         </Text>
       </Texto>
 

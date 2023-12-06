@@ -16,6 +16,7 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "axios": "^1.6.1",
+    "eas-cli": "^5.9.1",
     "expo": "~47.0.12",
     "expo-av": "~13.0.3",
     "expo-camera": "~13.1.0",
